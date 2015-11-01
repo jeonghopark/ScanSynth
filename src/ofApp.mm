@@ -8,6 +8,7 @@ int scale[20] = {-48,-24,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,36,48};
 #include "ofApp.h"
 
 
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     
@@ -69,6 +70,7 @@ void ofApp::setup(){
         screenH = ofGetHeight();
     }
 	
+    
     tex.allocate(cameraWidth, cameraHeight, GL_RGB);
 	
     
@@ -94,6 +96,9 @@ void ofApp::setup(){
     
     synthMain.setOutputGen( synth1 * 0.8f );
     
+    
+    
+    
     for (int i=0; i<leftTwentyLineNumber; i++) {
         CircleMoving _lc;
         _lc.movingFactor = 3;
@@ -108,6 +113,7 @@ void ofApp::setup(){
     ofSoundStreamSetup(2, 0, this, 44100, 256, 4);
 
 
+    
 }
 
 
@@ -118,13 +124,13 @@ void ofApp::update(){
     
     if (TARGET_IPHONE_SIMULATOR) {
         debugMovie.update();
-        if (debugMovie.isFrameNew()){
+        if (debugMovie.isFrameNew()) {
             unsigned char * src = debugMovie.getPixels().getData();
             calculatePixel(src);
         }
     } else {
         grabber.update();
-        if (grabber.isFrameNew()){
+        if (grabber.isFrameNew()) {
             unsigned char * src = grabber.getPixels().getData();
             calculatePixel(src);
         }
@@ -361,6 +367,7 @@ void ofApp::touchDown(ofTouchEventArgs & touch){
 
 }
 
+
 //--------------------------------------------------------------
 void ofApp::touchMoved(ofTouchEventArgs & touch){
     if (touch.id==0) {
@@ -368,10 +375,12 @@ void ofApp::touchMoved(ofTouchEventArgs & touch){
     }
 }
 
+
 //--------------------------------------------------------------
 void ofApp::touchUp(ofTouchEventArgs & touch){
     
 }
+
 
 //--------------------------------------------------------------
 void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
@@ -386,38 +395,43 @@ void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
     if (bFrontCam==0) {
         grabber.close();
         grabber.setDeviceID(0);
-        grabber.initGrabber(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
+        grabber.setup(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
         grabber.update();
     }
     if (bFrontCam==1) {
         grabber.close();
         grabber.setDeviceID(1);
-        grabber.initGrabber(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
+        grabber.setup(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
         grabber.update();
     }
 
     
 }
+
 
 //--------------------------------------------------------------
 void ofApp::touchCancelled(ofTouchEventArgs & touch){
     
 }
 
+
 //--------------------------------------------------------------
 void ofApp::lostFocus(){
     
 }
+
 
 //--------------------------------------------------------------
 void ofApp::gotFocus(){
     
 }
 
+
 //--------------------------------------------------------------
 void ofApp::gotMemoryWarning(){
     
 }
+
 
 //--------------------------------------------------------------
 void ofApp::deviceOrientationChanged(int newOrientation){
