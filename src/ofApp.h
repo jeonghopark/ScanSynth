@@ -112,6 +112,7 @@ public:
     int quarterCameraHeight;
     float videoRatio;
     
+    
 };
 
 

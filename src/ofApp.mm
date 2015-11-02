@@ -20,10 +20,13 @@ void ofApp::setup(){
     //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     
-//    ofBackground( 10 );
+//
 
     ofSetFrameRate(60);
     ofEnableAlphaBlending();
+
+    ofBackground(0);
+    
     
     //    ofxAccelerometer.setup();               //accesses accelerometer data
     //    ofxiPhoneAlerts.addListener(this);      //allows elerts to appear while app is running
@@ -75,7 +78,7 @@ void ofApp::setup(){
     leftTwentyLineNumber = 20;
     
     
-    pixelColor.resize(cameraHeight);
+    pixelColor.resize(cameraWidth);
     
     
     ControlParameter carrierPitch1 = synth1.addParameter("carrierPitch1");
@@ -103,6 +106,9 @@ void ofApp::setup(){
     circleMovigSpeed = 7;
     
     ofSoundStreamSetup(2, 0, this, 44100, 256, 4);
+    
+    float _middlePointX = screenW * 0.5;
+    float _middlePointY = quarterCameraHeight + 300;
     
     
 }
@@ -152,27 +158,26 @@ void ofApp::calculatePixel(unsigned char * src){
     
     cameraTex.loadData(src, cameraWidth, quarterCameraHeight, GL_RGB);
 
-//        for (int i=0; i<cameraHeight; i++){
-//            for (int j=cameraWidth*1/4; j<cameraWidth*3; j++){
-//                int _index = i * cameraWidth*3 + j;
-//                pix[_index ] = src[_index];
-//            }
+//    for (int i=0; i<cameraHeight; i++){
+//        for (int j=cameraWidth*1/4; j<cameraWidth*3; j++){
+//            int _index = i * cameraWidth*3 + j;
+//            pix[_index ] = src[_index];
 //        }
+//    }
+    
+    
+    
+    for (int i=0; i<pixelColor.size(); i+=1){
+        int _index = i * 3 + quarterCameraHeight * cameraWidth * 3;
+        ofColor _temp;
+        _temp.r = src[_index];
+        _temp.g = src[_index+1];
+        _temp.b = src[_index+2];
+        pixelColor[i] = _temp;
+    }
     
     
 
-    
-    
-    //    for (int i=0; i<cameraHeight; i++){
-    //        int _index = cameraWidth*3 * i + cameraWidth*3/4;
-    //        ofColor _temp;
-    //        _temp.r = pix[_index];
-    //        _temp.g = pix[_index+1];
-    //        _temp.b = pix[_index+2];
-    //        pixelColor[i] = _temp;
-    //    }
-    //
-    //
     //    int _leftLineRatio = (int)cameraHeight / leftTwentyLineNumber;
     //    for (int i=0; i<cameraHeight; i+=_leftLineRatio) {
     //        int _index = cameraWidth*3 * i + cameraWidth*3/4;
@@ -268,27 +273,25 @@ void ofApp::draw() {
     
     cameraTex.draw( 0, 0, cameraWidth * videoRatio, quarterCameraHeight * videoRatio );
     
-    //    ofPushMatrix();
-    //    ofPushStyle();
-    //
-    //    for (int i=0; i<cameraHeight; i++) {
-    //        ofSetLineWidth( _videoRatio );
-    //        ofSetColor(pixelColor[i]);
-    //
-    //        float _leftEndHeight = 20;
-    //        float _leftEnd = ofGetHeight()/2 + (i * _leftEndHeight / cameraHeight) - _leftEndHeight/2;
-    //
-    //        ofPoint _rightPoint = ofPoint( ofGetWidth()*6/8, i * _videoRatio );
-    //        ofPoint _leftPoint = ofPoint( ofGetWidth()*5/8, _leftEnd );
-    //        ofDrawLine(_leftPoint, _rightPoint);
-    //    }
-    //
-    //    ofPopStyle();
-    //    ofPopMatrix();
-    //
-    //
-    //
-    //
+    ofPushMatrix();
+    ofPushStyle();
+
+    for (int i=0; i<pixelColor.size(); i++) {
+        ofSetColor(pixelColor[i]);
+        ofPoint _upPoint = ofPoint( i * videoRatio, quarterCameraHeight * videoRatio );
+        
+        float _sizeRatio = 0.125;
+        float _x = screenW * 0.5 - (pixelColor.size() - 1) * _sizeRatio * 0.5 + i * _sizeRatio;
+        float _y = quarterCameraHeight * videoRatio * 2;
+        ofPoint _downPoint = ofPoint( _x, _y );
+        ofDrawLine( _upPoint, _downPoint );
+    }
+
+    ofPopStyle();
+    ofPopMatrix();
+    
+
+    
     //    ofPushMatrix();
     //    ofPushStyle();
     //
