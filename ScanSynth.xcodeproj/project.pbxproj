@@ -1,0 +1,839 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CA63AB87703EEA7D203DFDF /* ControlMetro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AD421DED5BA919A69A2EE4D /* ControlMetro.cpp */; };
+		0D10EBD1D03437932A26EA10 /* ControlCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC69A2AD93FBE28FB23CA93 /* ControlCounter.cpp */; };
+		0EDB7EAE7D531614F30989B5 /* Arithmetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FE601BEDC5892C60E126B83 /* Arithmetic.cpp */; };
+		0EED280DA046B5F1D5D56BD2 /* BasicDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEA19424D277253762E4CE8 /* BasicDelay.cpp */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1F659291652C32F0DA74A995 /* ControlParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A40A7CE8FBCF378D0A610B7C /* ControlParameter.cpp */; };
+		1FEE51E4353272821CD46B2B /* ofxTonicSynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5B244977BB30039002B144F /* ofxTonicSynth.cpp */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		29095D52D314A0AD6E135CEF /* TableLookupOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B48E79E8B5FFBA4446EED9D7 /* TableLookupOsc.cpp */; };
+		29FC6FFC02EC6540F411830C /* ControlTriggerFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52A7E4147FF9D5E75577882D /* ControlTriggerFilter.cpp */; };
+		2A0E78484C3AE5EEA2A97F5E /* BufferPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8FFED542711A0EC55A44DA4 /* BufferPlayer.cpp */; };
+		3B0DC3D338A7D340B029881C /* ControlStepper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4BF142DB919CDF36C2DACB1 /* ControlStepper.cpp */; };
+		3B4F2BE29B4D742CF6E38447 /* ControlPulse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 077CC5EEA3873550AD2A1BB7 /* ControlPulse.cpp */; };
+		4184E4DE148192310822789D /* SineWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E13035BD9C933F56D5CCA8 /* SineWave.cpp */; };
+		47FFB9E6A53877A65AE13A0C /* FilterUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F21D82FAF1D2B1811111158 /* FilterUtils.cpp */; };
+		48323106D7DAB9FE66C3DDAC /* DSPUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFA2800B111390D8B8064B05 /* DSPUtils.cpp */; };
+		4EC9BD70971596251B71EABB /* Synth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68C2BF9199A0FAB7B19A2729 /* Synth.cpp */; };
+		524BE5753E9BDE57003DFD0D /* Noise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFC27CA934AFD26D485F92F5 /* Noise.cpp */; };
+		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
+		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
+		57BE127E9364F7335F78F11C /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1C8C969D57E1FB00230A380 /* Generator.cpp */; };
+		5DE17D831E162440E066C370 /* BufferFiller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33391F960C0AF559C61544E7 /* BufferFiller.cpp */; };
+		61DD0EB4BD8830BAAE5A53F9 /* Mixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CC054CE0E0E760149C1582 /* Mixer.cpp */; };
+		6514DC7E22C3B7DC1FB0C3B3 /* CombFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51EEEAC49AD83E19752B5831 /* CombFilter.cpp */; };
+		66A3482341B5C5D1B8E1A18C /* RingBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC4A78C1BA5C9EF4288B6336 /* RingBuffer.cpp */; };
+		678E130817951530005B6D19 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130717951530005B6D19 /* Icon@2x.png */; };
+		678E130A17951536005B6D19 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130917951536005B6D19 /* Icon.png */; };
+		678E130C1795153C005B6D19 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130B1795153C005B6D19 /* Default.png */; };
+		678E130E17951540005B6D19 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130D17951540005B6D19 /* Default@2x.png */; };
+		678E131017951549005B6D19 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */; };
+		67DFA53619F92A69003B3434 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DFA53419F92A5E003B3434 /* Accelerate.framework */; };
+		6B63FC7F9131A4458144B291 /* ControlChangeNotifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5849E73038106DB581B4586A /* ControlChangeNotifier.cpp */; };
+		6D4AD5F084913BF4D630A2B4 /* LFNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 809953FDECE2567422DA48F6 /* LFNoise.cpp */; };
+		6F448633633AA19B04D12E67 /* ControlDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D99E531C35FC0C275969E /* ControlDelay.cpp */; };
+		71E90C35C3E4134C2D2C3F96 /* ControlGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33C91E0487C144DBDDB31621 /* ControlGenerator.cpp */; };
+		75891C4F6FF521EF5BC68DAE /* ControlTrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA27DEE39EBCB9144D60B9A7 /* ControlTrigger.cpp */; };
+		7E4C226630DB3D65ECBD63FF /* RectWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F77CC46B7C906D5536B3638 /* RectWave.cpp */; };
+		7E89DC79CCC53308031648F2 /* ControlConditioner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C2E995A15E3A9C939891E38 /* ControlConditioner.cpp */; };
+		82DDD10F871CB203FB9F7982 /* BitCrusher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A38CE2116E95A88D59C05D29 /* BitCrusher.cpp */; };
+		82DFBD3D4ABB48E68A5823A3 /* ControlRandom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6679C1CB8D75805249152B16 /* ControlRandom.cpp */; };
+		8536FE193A1D5F9C8619698C /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32A5471EF471C28EBE8637C5 /* Effect.cpp */; };
+		8680A19142F714C3FEEC1DE8 /* AudioFileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 677CBFB73381E88198EC8A8C /* AudioFileUtils.cpp */; };
+		98BEBC6CD820CC94C9E1820A /* ADSR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E3E484C260A1E2D08E19927 /* ADSR.cpp */; };
+		9F0EB87185C49652D6B4CF41 /* ControlCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4F813F8FC93CFD10E41855 /* ControlCallback.cpp */; };
+		A080206DDA89F3B42CC45CD4 /* StereoDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCDDB9FF49AEED30B3484C9F /* StereoDelay.cpp */; };
+		A5A1C66C69F171040E6BC04E /* ControlComparison.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 335B172B0B88819777FE07DD /* ControlComparison.cpp */; };
+		B4907B79ADE43D245CAB0EB6 /* CompressorLimiter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5279A0818F311255D5D174C8 /* CompressorLimiter.cpp */; };
+		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
+		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
+		BBD1FC0FAB93A2A1C14C1461 /* MonoToStereoPanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9202EB574F57B4D5FCC12A3F /* MonoToStereoPanner.cpp */; };
+		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
+		C64234F4217B13F769EFC32F /* TonicFrames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EA8D9DF4C81CCD2E6A74A4D /* TonicFrames.cpp */; };
+		C726BBE7E8951B0FBEC670B2 /* ControlMetroDivider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C292BD23E3DF6190FDFA1F44 /* ControlMetroDivider.cpp */; };
+		CB22B44D81628C27A777529B /* ControlSnapToScale.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF39445FE4E55BB77E74C7DC /* ControlSnapToScale.cpp */; };
+		CC8BDF7CA9962753A9DAFFD0 /* SampleTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E88991BB728D6B725871B31B /* SampleTable.cpp */; };
+		CF121031E7A279229CAB376A /* Filters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86DB42AA673946157E6A4405 /* Filters.cpp */; };
+		D0171449ACF3C4BCCA5209BB /* ControlRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCF177C70FC4A32CE6F95A1 /* ControlRecorder.cpp */; };
+		D3CBD2FDA4BCA7DC336C03E4 /* ControlMidiToFreq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 904D8448933DF401A3A0DD7A /* ControlMidiToFreq.cpp */; };
+		D49C8E697AEB3B1E093246EF /* ControlDbToLinear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 165947EE1963A8DDA79D498E /* ControlDbToLinear.cpp */; };
+		D7E5DECCE17EDB8C9091C3F3 /* ControlArithmetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F355B8E094F20EA1FBB0662F /* ControlArithmetic.cpp */; };
+		DCF18C7622819DA97B1DC4F9 /* DelayUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 687A6CE8339BEB440CC638C0 /* DelayUtils.cpp */; };
+		DEBFE6CAF2C5A96AAF189F32 /* ControlSwitcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D2BE68C8DD1516D331E94F5 /* ControlSwitcher.cpp */; };
+		E0E3127AA73EF83D610F8858 /* FixedValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B49FAC3F721A76F4C098F5 /* FixedValue.cpp */; };
+		E1DA54DC2F47CBA907DC819C /* ControlFloor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1335B98832FFBDC87E10677 /* ControlFloor.cpp */; };
+		E36598F4EF3EDD79DEA02CDE /* SawtoothWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F2F79F058C70EDDCA4D9D /* SawtoothWave.cpp */; };
+		E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400613B39D2100A75A5D /* AVFoundation.framework */; };
+		E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400713B39D2100A75A5D /* CoreMedia.framework */; };
+		E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400813B39D2100A75A5D /* CoreVideo.framework */; };
+		E41D400E13B39D2100A75A5D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400913B39D2100A75A5D /* MapKit.framework */; };
+		E41D421413B3A95300A75A5D /* libofxiOS_iphoneos_Debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D410213B3A0D800A75A5D /* libofxiOS_iphoneos_Debug.a */; };
+		E4D8936E11527B74007E1F53 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936B11527B74007E1F53 /* main.mm */; };
+		E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936D11527B74007E1F53 /* ofApp.mm */; };
+		E6E25C8479E3C3FC9FEA79D8 /* ControlPrinter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74D77E09C4E2FCC66569157 /* ControlPrinter.cpp */; };
+		EDF99053F7EB8764E3D7938B /* BLEPOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88EFB901C069048524DAD596 /* BLEPOscillator.cpp */; };
+		F7B1B67CCB91B8EED2432AC7 /* PolySynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3135A80A0104E1DE64D7C128 /* PolySynth.cpp */; };
+		F7C90FDC03DF91D96EC11E0C /* ControlXYSpeed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 912B0F60D136FD295453ABE1 /* ControlXYSpeed.cpp */; };
+		F7CA83B1FF349ECC18CBF3C7 /* RampedValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7222651D1AE4D5C41BD64474 /* RampedValue.cpp */; };
+		FA855EBD7B4DBA08CD4BD302 /* ControlValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 085251ECC95622B4F5F46592 /* ControlValue.cpp */; };
+		FD13915768EE2606AB0F90BE /* Reverb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 023F761D585AD8150655ACF3 /* Reverb.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E41D410113B3A0D800A75A5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E41D40FD13B3A0D800A75A5D /* iOS+OFLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BB24DED610DA7A3F00E9C588;
+			remoteInfo = "iPhone+OF Static Library";
+		};
+		E41D410313B3A11300A75A5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E41D40FD13B3A0D800A75A5D /* iOS+OFLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BB24DE5C10DA7A3F00E9C588;
+			remoteInfo = "iPhone+OF Static Library";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		017087480F4A5D71BFC73520 /* Mixer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Mixer.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Mixer.h; sourceTree = SOURCE_ROOT; };
+		023F761D585AD8150655ACF3 /* Reverb.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Reverb.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Reverb.cpp; sourceTree = SOURCE_ROOT; };
+		047FEB8BDEE78308BBE679E8 /* ControlComparison.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlComparison.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlComparison.h; sourceTree = SOURCE_ROOT; };
+		077CC5EEA3873550AD2A1BB7 /* ControlPulse.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlPulse.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlPulse.cpp; sourceTree = SOURCE_ROOT; };
+		085251ECC95622B4F5F46592 /* ControlValue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlValue.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlValue.cpp; sourceTree = SOURCE_ROOT; };
+		0D2BE68C8DD1516D331E94F5 /* ControlSwitcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlSwitcher.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlSwitcher.cpp; sourceTree = SOURCE_ROOT; };
+		15DFB9D8735223B30D2C333B /* SineWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SineWave.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SineWave.h; sourceTree = SOURCE_ROOT; };
+		165947EE1963A8DDA79D498E /* ControlDbToLinear.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlDbToLinear.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlDbToLinear.cpp; sourceTree = SOURCE_ROOT; };
+		16CC054CE0E0E760149C1582 /* Mixer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Mixer.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Mixer.cpp; sourceTree = SOURCE_ROOT; };
+		176EE5B1696DC752A7FD2301 /* FixedValue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FixedValue.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/FixedValue.h; sourceTree = SOURCE_ROOT; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* ScanSynth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSynth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2501FC3E238E5CA99D8B1DA8 /* ControlValue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlValue.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlValue.h; sourceTree = SOURCE_ROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2BA0863A2E7579E610328C22 /* Reverb.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Reverb.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Reverb.h; sourceTree = SOURCE_ROOT; };
+		2EA8D9DF4C81CCD2E6A74A4D /* TonicFrames.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TonicFrames.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/TonicFrames.cpp; sourceTree = SOURCE_ROOT; };
+		2F0EB721D181BFDBDB5DCC30 /* ControlTrigger.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlTrigger.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlTrigger.h; sourceTree = SOURCE_ROOT; };
+		2F21D82FAF1D2B1811111158 /* FilterUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FilterUtils.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/FilterUtils.cpp; sourceTree = SOURCE_ROOT; };
+		2F77CC46B7C906D5536B3638 /* RectWave.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RectWave.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/RectWave.cpp; sourceTree = SOURCE_ROOT; };
+		3135A80A0104E1DE64D7C128 /* PolySynth.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PolySynth.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/PolySynth.cpp; sourceTree = SOURCE_ROOT; };
+		32A5471EF471C28EBE8637C5 /* Effect.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Effect.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Effect.cpp; sourceTree = SOURCE_ROOT; };
+		32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiOS_Prefix.pch; sourceTree = "<group>"; };
+		33391F960C0AF559C61544E7 /* BufferFiller.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BufferFiller.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BufferFiller.cpp; sourceTree = SOURCE_ROOT; };
+		335B172B0B88819777FE07DD /* ControlComparison.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlComparison.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlComparison.cpp; sourceTree = SOURCE_ROOT; };
+		33C91E0487C144DBDDB31621 /* ControlGenerator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlGenerator.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlGenerator.cpp; sourceTree = SOURCE_ROOT; };
+		3462977A6F5743E551797E66 /* ControlMidiToFreq.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlMidiToFreq.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlMidiToFreq.h; sourceTree = SOURCE_ROOT; };
+		37E9651EF0A1FFDBE2840ADB /* SquareWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SquareWave.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SquareWave.h; sourceTree = SOURCE_ROOT; };
+		3E9FEA3B7B0E5DE9A4FA5590 /* ControlArithmetic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlArithmetic.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlArithmetic.h; sourceTree = SOURCE_ROOT; };
+		3EFB46EEEA19802A9DCDB4FC /* CombFilter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CombFilter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/CombFilter.h; sourceTree = SOURCE_ROOT; };
+		425E3219476E319E11BF5205 /* ADSR.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ADSR.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ADSR.h; sourceTree = SOURCE_ROOT; };
+		46033CB5BCE8A4D962105E1C /* ControlFloor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlFloor.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlFloor.h; sourceTree = SOURCE_ROOT; };
+		47A72ADF783B85D421EBEEFB /* TonicCore.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TonicCore.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/TonicCore.h; sourceTree = SOURCE_ROOT; };
+		489BBAE4A80AA8F22F927930 /* CompressorLimiter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CompressorLimiter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/CompressorLimiter.h; sourceTree = SOURCE_ROOT; };
+		4AD765BFA3CCC9EDADE579B8 /* ControlGenerator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlGenerator.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlGenerator.h; sourceTree = SOURCE_ROOT; };
+		4B129671117F6B2BD82F075F /* Generator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Generator.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Generator.h; sourceTree = SOURCE_ROOT; };
+		4FE601BEDC5892C60E126B83 /* Arithmetic.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Arithmetic.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Arithmetic.cpp; sourceTree = SOURCE_ROOT; };
+		51EEEAC49AD83E19752B5831 /* CombFilter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = CombFilter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/CombFilter.cpp; sourceTree = SOURCE_ROOT; };
+		52771590A61475002F9B81E5 /* RectWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RectWave.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/RectWave.h; sourceTree = SOURCE_ROOT; };
+		5279A0818F311255D5D174C8 /* CompressorLimiter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = CompressorLimiter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/CompressorLimiter.cpp; sourceTree = SOURCE_ROOT; };
+		52A7E4147FF9D5E75577882D /* ControlTriggerFilter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlTriggerFilter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlTriggerFilter.cpp; sourceTree = SOURCE_ROOT; };
+		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		5849E73038106DB581B4586A /* ControlChangeNotifier.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlChangeNotifier.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlChangeNotifier.cpp; sourceTree = SOURCE_ROOT; };
+		5AD421DED5BA919A69A2EE4D /* ControlMetro.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlMetro.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlMetro.cpp; sourceTree = SOURCE_ROOT; };
+		5B9562006302B81480E008E3 /* BLEPOscillator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BLEPOscillator.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BLEPOscillator.h; sourceTree = SOURCE_ROOT; };
+		60522A1DCBB9574884F1C011 /* RingBuffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RingBuffer.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/RingBuffer.h; sourceTree = SOURCE_ROOT; };
+		63E13035BD9C933F56D5CCA8 /* SineWave.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SineWave.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SineWave.cpp; sourceTree = SOURCE_ROOT; };
+		6679C1CB8D75805249152B16 /* ControlRandom.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlRandom.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlRandom.cpp; sourceTree = SOURCE_ROOT; };
+		677CBFB73381E88198EC8A8C /* AudioFileUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AudioFileUtils.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/AudioFileUtils.cpp; sourceTree = SOURCE_ROOT; };
+		678E130717951530005B6D19 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "bin/data/Icon@2x.png"; sourceTree = "<group>"; };
+		678E130917951536005B6D19 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = "<group>"; };
+		678E130B1795153C005B6D19 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = "<group>"; };
+		678E130D17951540005B6D19 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "bin/data/Default@2x.png"; sourceTree = "<group>"; };
+		678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x~iphone.png"; path = "bin/data/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		67DFA53419F92A5E003B3434 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		687A6CE8339BEB440CC638C0 /* DelayUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DelayUtils.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/DelayUtils.cpp; sourceTree = SOURCE_ROOT; };
+		68A1164B42DD7CDE75FC5EC4 /* DSPUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DSPUtils.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/DSPUtils.h; sourceTree = SOURCE_ROOT; };
+		68C2BF9199A0FAB7B19A2729 /* Synth.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Synth.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Synth.cpp; sourceTree = SOURCE_ROOT; };
+		6DC69A2AD93FBE28FB23CA93 /* ControlCounter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlCounter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlCounter.cpp; sourceTree = SOURCE_ROOT; };
+		6E3E484C260A1E2D08E19927 /* ADSR.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ADSR.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ADSR.cpp; sourceTree = SOURCE_ROOT; };
+		6E8D99E531C35FC0C275969E /* ControlDelay.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlDelay.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlDelay.cpp; sourceTree = SOURCE_ROOT; };
+		6EAC2FD3A86032CCC6513C5D /* Tonic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Tonic.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic.h; sourceTree = SOURCE_ROOT; };
+		7222651D1AE4D5C41BD64474 /* RampedValue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RampedValue.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/RampedValue.cpp; sourceTree = SOURCE_ROOT; };
+		753A358E25366D514699CF74 /* BasicDelay.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BasicDelay.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BasicDelay.h; sourceTree = SOURCE_ROOT; };
+		75517646DFF44739CC1A735F /* ControlRandom.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlRandom.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlRandom.h; sourceTree = SOURCE_ROOT; };
+		755A484210F2F7A0955C43B3 /* ControlCallback.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlCallback.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlCallback.h; sourceTree = SOURCE_ROOT; };
+		79587BF286EAA3443141AA22 /* ControlCounter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlCounter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlCounter.h; sourceTree = SOURCE_ROOT; };
+		7ACC401AA52AB08EAA6B9D8B /* AudioFileUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AudioFileUtils.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/AudioFileUtils.h; sourceTree = SOURCE_ROOT; };
+		809953FDECE2567422DA48F6 /* LFNoise.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = LFNoise.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/LFNoise.cpp; sourceTree = SOURCE_ROOT; };
+		85145BBCD41CDFDCDC185785 /* Effect.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Effect.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Effect.h; sourceTree = SOURCE_ROOT; };
+		857C1E68227D32D8169979DF /* SampleTable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SampleTable.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SampleTable.h; sourceTree = SOURCE_ROOT; };
+		86DB42AA673946157E6A4405 /* Filters.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Filters.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Filters.cpp; sourceTree = SOURCE_ROOT; };
+		88B94330B336D0B8702F4196 /* ControlConditioner.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlConditioner.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlConditioner.h; sourceTree = SOURCE_ROOT; };
+		88EFB901C069048524DAD596 /* BLEPOscillator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BLEPOscillator.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BLEPOscillator.cpp; sourceTree = SOURCE_ROOT; };
+		88F8FAD1117E49D4522E5B4C /* RampedValue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RampedValue.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/RampedValue.h; sourceTree = SOURCE_ROOT; };
+		8E7F2F79F058C70EDDCA4D9D /* SawtoothWave.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SawtoothWave.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SawtoothWave.cpp; sourceTree = SOURCE_ROOT; };
+		8F5F77D458BFD69195C67ABF /* ControlSnapToScale.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlSnapToScale.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlSnapToScale.h; sourceTree = SOURCE_ROOT; };
+		904D8448933DF401A3A0DD7A /* ControlMidiToFreq.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlMidiToFreq.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlMidiToFreq.cpp; sourceTree = SOURCE_ROOT; };
+		912B0F60D136FD295453ABE1 /* ControlXYSpeed.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlXYSpeed.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlXYSpeed.cpp; sourceTree = SOURCE_ROOT; };
+		919101B3437228B6B103A5E0 /* DelayUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DelayUtils.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/DelayUtils.h; sourceTree = SOURCE_ROOT; };
+		9202EB574F57B4D5FCC12A3F /* MonoToStereoPanner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = MonoToStereoPanner.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/MonoToStereoPanner.cpp; sourceTree = SOURCE_ROOT; };
+		92EF1A9BF59F838AC2211E52 /* ControlPulse.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlPulse.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlPulse.h; sourceTree = SOURCE_ROOT; };
+		963DDECEE8725F776266D5C5 /* TonicFrames.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TonicFrames.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/TonicFrames.h; sourceTree = SOURCE_ROOT; };
+		98A19DF6DF50375C1C21CEA5 /* LFNoise.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = LFNoise.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/LFNoise.h; sourceTree = SOURCE_ROOT; };
+		99F8D56B50C2A94AA89BFEA0 /* BufferFiller.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BufferFiller.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BufferFiller.h; sourceTree = SOURCE_ROOT; };
+		9C2E995A15E3A9C939891E38 /* ControlConditioner.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlConditioner.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlConditioner.cpp; sourceTree = SOURCE_ROOT; };
+		9D36144DF5D9080282CA72D8 /* ControlDbToLinear.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlDbToLinear.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlDbToLinear.h; sourceTree = SOURCE_ROOT; };
+		A38CE2116E95A88D59C05D29 /* BitCrusher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BitCrusher.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BitCrusher.cpp; sourceTree = SOURCE_ROOT; };
+		A40A7CE8FBCF378D0A610B7C /* ControlParameter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlParameter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlParameter.cpp; sourceTree = SOURCE_ROOT; };
+		A56CCF1261DFF0806E6EF0E3 /* ControlParameter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlParameter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlParameter.h; sourceTree = SOURCE_ROOT; };
+		A74D77E09C4E2FCC66569157 /* ControlPrinter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlPrinter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlPrinter.cpp; sourceTree = SOURCE_ROOT; };
+		AA4F813F8FC93CFD10E41855 /* ControlCallback.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlCallback.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlCallback.cpp; sourceTree = SOURCE_ROOT; };
+		ACCF177C70FC4A32CE6F95A1 /* ControlRecorder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlRecorder.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlRecorder.cpp; sourceTree = SOURCE_ROOT; };
+		AFF591A00876353DAAD8538C /* ofxTonicSynth.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTonicSynth.h; path = ../../../../openFrameworks/addons/ofxTonic/src/ofxTonicSynth.h; sourceTree = SOURCE_ROOT; };
+		B012C62EE4072F16D5DE113C /* ControlTriggerFilter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlTriggerFilter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlTriggerFilter.h; sourceTree = SOURCE_ROOT; };
+		B48E79E8B5FFBA4446EED9D7 /* TableLookupOsc.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TableLookupOsc.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/TableLookupOsc.cpp; sourceTree = SOURCE_ROOT; };
+		B5B244977BB30039002B144F /* ofxTonicSynth.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTonicSynth.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/ofxTonicSynth.cpp; sourceTree = SOURCE_ROOT; };
+		B6E35D20D0E56CBA32F230E5 /* BitCrusher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BitCrusher.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BitCrusher.h; sourceTree = SOURCE_ROOT; };
+		B945D1BB0D4540BF9AE9247D /* Noise.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Noise.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Noise.h; sourceTree = SOURCE_ROOT; };
+		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiOS-Info.plist"; sourceTree = "<group>"; };
+		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BC4A78C1BA5C9EF4288B6336 /* RingBuffer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RingBuffer.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/RingBuffer.cpp; sourceTree = SOURCE_ROOT; };
+		BCD2BE7458AD6C940DF26A12 /* ControlMetroDivider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlMetroDivider.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlMetroDivider.h; sourceTree = SOURCE_ROOT; };
+		BCDDB9FF49AEED30B3484C9F /* StereoDelay.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = StereoDelay.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/StereoDelay.cpp; sourceTree = SOURCE_ROOT; };
+		C0F7CDF0059616F869238E65 /* TriangleWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TriangleWave.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/TriangleWave.h; sourceTree = SOURCE_ROOT; };
+		C10BA43D43DCE04DF6A582E4 /* ControlStepper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlStepper.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlStepper.h; sourceTree = SOURCE_ROOT; };
+		C1335B98832FFBDC87E10677 /* ControlFloor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlFloor.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlFloor.cpp; sourceTree = SOURCE_ROOT; };
+		C292BD23E3DF6190FDFA1F44 /* ControlMetroDivider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlMetroDivider.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlMetroDivider.cpp; sourceTree = SOURCE_ROOT; };
+		C3032885BC0660155C0B29A0 /* ControlMetro.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlMetro.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlMetro.h; sourceTree = SOURCE_ROOT; };
+		C3B49FAC3F721A76F4C098F5 /* FixedValue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FixedValue.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/FixedValue.cpp; sourceTree = SOURCE_ROOT; };
+		C408098D984ED3FBB8E7BD68 /* ControlRecorder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlRecorder.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlRecorder.h; sourceTree = SOURCE_ROOT; };
+		C8FFED542711A0EC55A44DA4 /* BufferPlayer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BufferPlayer.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BufferPlayer.cpp; sourceTree = SOURCE_ROOT; };
+		C939F84FE330A4AC95565C8D /* Arithmetic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Arithmetic.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Arithmetic.h; sourceTree = SOURCE_ROOT; };
+		CD9F09A8F56863373717A251 /* ControlDelay.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlDelay.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlDelay.h; sourceTree = SOURCE_ROOT; };
+		CF46EECCFE2AADBA65A93C3C /* Filters.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Filters.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Filters.h; sourceTree = SOURCE_ROOT; };
+		CFC27CA934AFD26D485F92F5 /* Noise.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Noise.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Noise.cpp; sourceTree = SOURCE_ROOT; };
+		D26F8D79D34D26A27B606B69 /* MonoToStereoPanner.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MonoToStereoPanner.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/MonoToStereoPanner.h; sourceTree = SOURCE_ROOT; };
+		D5FE344DF5D32119A03452F4 /* TableLookupOsc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TableLookupOsc.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/TableLookupOsc.h; sourceTree = SOURCE_ROOT; };
+		D6BC7A4F4A85C1A1356547C6 /* BufferPlayer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BufferPlayer.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BufferPlayer.h; sourceTree = SOURCE_ROOT; };
+		D9C3A0C625A33BAF86E2A263 /* ofxTonic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTonic.h; path = ../../../../openFrameworks/addons/ofxTonic/src/ofxTonic.h; sourceTree = SOURCE_ROOT; };
+		DFAB56F0F4AAC75A300D5FAC /* SawtoothWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SawtoothWave.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SawtoothWave.h; sourceTree = SOURCE_ROOT; };
+		E0903B96EE7AE731AEBC2E22 /* Synth.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Synth.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Synth.h; sourceTree = SOURCE_ROOT; };
+		E0B0636FC31184D09235E95C /* ControlPrinter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlPrinter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlPrinter.h; sourceTree = SOURCE_ROOT; };
+		E13B620F406859ECCFCBA87A /* ControlChangeNotifier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlChangeNotifier.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlChangeNotifier.h; sourceTree = SOURCE_ROOT; };
+		E2159E3857F32A7EFF0B24E9 /* ControlXYSpeed.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlXYSpeed.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlXYSpeed.h; sourceTree = SOURCE_ROOT; };
+		E41D3ED613B38FB500A75A5D /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		E41D3EE513B3906D00A75A5D /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../../openFrameworks/libs/openFrameworksCompiled/project/ios/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E41D400613B39D2100A75A5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E41D400713B39D2100A75A5D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E41D400813B39D2100A75A5D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E41D400913B39D2100A75A5D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E41D40FD13B3A0D800A75A5D /* iOS+OFLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "iOS+OFLib.xcodeproj"; path = "../../../../openFrameworks/libs/openFrameworksCompiled/project/ios/iOS+OFLib.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		E4A823A312561BE3002F86A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E4BF142DB919CDF36C2DACB1 /* ControlStepper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlStepper.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlStepper.cpp; sourceTree = SOURCE_ROOT; };
+		E4D8936B11527B74007E1F53 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
+		E4D8936C11527B74007E1F53 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4D8936D11527B74007E1F53 /* ofApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofApp.mm; path = src/ofApp.mm; sourceTree = SOURCE_ROOT; };
+		E693A89CF7E8EDB084680C7F /* StereoDelay.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = StereoDelay.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/StereoDelay.h; sourceTree = SOURCE_ROOT; };
+		E88991BB728D6B725871B31B /* SampleTable.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SampleTable.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/SampleTable.cpp; sourceTree = SOURCE_ROOT; };
+		EA27DEE39EBCB9144D60B9A7 /* ControlTrigger.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlTrigger.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlTrigger.cpp; sourceTree = SOURCE_ROOT; };
+		EFA2800B111390D8B8064B05 /* DSPUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DSPUtils.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/DSPUtils.cpp; sourceTree = SOURCE_ROOT; };
+		F1A74C3ED76CB1ABDDD4F30A /* PolySynth.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PolySynth.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/PolySynth.h; sourceTree = SOURCE_ROOT; };
+		F1C8C969D57E1FB00230A380 /* Generator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Generator.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/Generator.cpp; sourceTree = SOURCE_ROOT; };
+		F28C2A3B75BED9876DE69DAB /* ControlSwitcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlSwitcher.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlSwitcher.h; sourceTree = SOURCE_ROOT; };
+		F355B8E094F20EA1FBB0662F /* ControlArithmetic.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlArithmetic.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlArithmetic.cpp; sourceTree = SOURCE_ROOT; };
+		FDEA19424D277253762E4CE8 /* BasicDelay.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BasicDelay.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/BasicDelay.cpp; sourceTree = SOURCE_ROOT; };
+		FF1D503123AB2A2B0A1A6488 /* FilterUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FilterUtils.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/FilterUtils.h; sourceTree = SOURCE_ROOT; };
+		FF39445FE4E55BB77E74C7DC /* ControlSnapToScale.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlSnapToScale.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlSnapToScale.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E41D421413B3A95300A75A5D /* libofxiOS_iphoneos_Debug.a in Frameworks */,
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */,
+				BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */,
+				BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */,
+				53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */,
+				5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */,
+				E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */,
+				E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */,
+				E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */,
+				E41D400E13B39D2100A75A5D /* MapKit.framework in Frameworks */,
+				67DFA53619F92A69003B3434 /* Accelerate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E79F97A89352266EDC34BFD /* Tonic */ = {
+			isa = PBXGroup;
+			children = (
+				6E3E484C260A1E2D08E19927 /* ADSR.cpp */,
+				425E3219476E319E11BF5205 /* ADSR.h */,
+				4FE601BEDC5892C60E126B83 /* Arithmetic.cpp */,
+				C939F84FE330A4AC95565C8D /* Arithmetic.h */,
+				677CBFB73381E88198EC8A8C /* AudioFileUtils.cpp */,
+				7ACC401AA52AB08EAA6B9D8B /* AudioFileUtils.h */,
+				FDEA19424D277253762E4CE8 /* BasicDelay.cpp */,
+				753A358E25366D514699CF74 /* BasicDelay.h */,
+				A38CE2116E95A88D59C05D29 /* BitCrusher.cpp */,
+				B6E35D20D0E56CBA32F230E5 /* BitCrusher.h */,
+				88EFB901C069048524DAD596 /* BLEPOscillator.cpp */,
+				5B9562006302B81480E008E3 /* BLEPOscillator.h */,
+				33391F960C0AF559C61544E7 /* BufferFiller.cpp */,
+				99F8D56B50C2A94AA89BFEA0 /* BufferFiller.h */,
+				C8FFED542711A0EC55A44DA4 /* BufferPlayer.cpp */,
+				D6BC7A4F4A85C1A1356547C6 /* BufferPlayer.h */,
+				51EEEAC49AD83E19752B5831 /* CombFilter.cpp */,
+				3EFB46EEEA19802A9DCDB4FC /* CombFilter.h */,
+				5279A0818F311255D5D174C8 /* CompressorLimiter.cpp */,
+				489BBAE4A80AA8F22F927930 /* CompressorLimiter.h */,
+				F355B8E094F20EA1FBB0662F /* ControlArithmetic.cpp */,
+				3E9FEA3B7B0E5DE9A4FA5590 /* ControlArithmetic.h */,
+				AA4F813F8FC93CFD10E41855 /* ControlCallback.cpp */,
+				755A484210F2F7A0955C43B3 /* ControlCallback.h */,
+				5849E73038106DB581B4586A /* ControlChangeNotifier.cpp */,
+				E13B620F406859ECCFCBA87A /* ControlChangeNotifier.h */,
+				335B172B0B88819777FE07DD /* ControlComparison.cpp */,
+				047FEB8BDEE78308BBE679E8 /* ControlComparison.h */,
+				9C2E995A15E3A9C939891E38 /* ControlConditioner.cpp */,
+				88B94330B336D0B8702F4196 /* ControlConditioner.h */,
+				6DC69A2AD93FBE28FB23CA93 /* ControlCounter.cpp */,
+				79587BF286EAA3443141AA22 /* ControlCounter.h */,
+				165947EE1963A8DDA79D498E /* ControlDbToLinear.cpp */,
+				9D36144DF5D9080282CA72D8 /* ControlDbToLinear.h */,
+				6E8D99E531C35FC0C275969E /* ControlDelay.cpp */,
+				CD9F09A8F56863373717A251 /* ControlDelay.h */,
+				C1335B98832FFBDC87E10677 /* ControlFloor.cpp */,
+				46033CB5BCE8A4D962105E1C /* ControlFloor.h */,
+				33C91E0487C144DBDDB31621 /* ControlGenerator.cpp */,
+				4AD765BFA3CCC9EDADE579B8 /* ControlGenerator.h */,
+				5AD421DED5BA919A69A2EE4D /* ControlMetro.cpp */,
+				C3032885BC0660155C0B29A0 /* ControlMetro.h */,
+				C292BD23E3DF6190FDFA1F44 /* ControlMetroDivider.cpp */,
+				BCD2BE7458AD6C940DF26A12 /* ControlMetroDivider.h */,
+				904D8448933DF401A3A0DD7A /* ControlMidiToFreq.cpp */,
+				3462977A6F5743E551797E66 /* ControlMidiToFreq.h */,
+				A40A7CE8FBCF378D0A610B7C /* ControlParameter.cpp */,
+				A56CCF1261DFF0806E6EF0E3 /* ControlParameter.h */,
+				A74D77E09C4E2FCC66569157 /* ControlPrinter.cpp */,
+				E0B0636FC31184D09235E95C /* ControlPrinter.h */,
+				077CC5EEA3873550AD2A1BB7 /* ControlPulse.cpp */,
+				92EF1A9BF59F838AC2211E52 /* ControlPulse.h */,
+				6679C1CB8D75805249152B16 /* ControlRandom.cpp */,
+				75517646DFF44739CC1A735F /* ControlRandom.h */,
+				ACCF177C70FC4A32CE6F95A1 /* ControlRecorder.cpp */,
+				C408098D984ED3FBB8E7BD68 /* ControlRecorder.h */,
+				FF39445FE4E55BB77E74C7DC /* ControlSnapToScale.cpp */,
+				8F5F77D458BFD69195C67ABF /* ControlSnapToScale.h */,
+				E4BF142DB919CDF36C2DACB1 /* ControlStepper.cpp */,
+				C10BA43D43DCE04DF6A582E4 /* ControlStepper.h */,
+				0D2BE68C8DD1516D331E94F5 /* ControlSwitcher.cpp */,
+				F28C2A3B75BED9876DE69DAB /* ControlSwitcher.h */,
+				EA27DEE39EBCB9144D60B9A7 /* ControlTrigger.cpp */,
+				2F0EB721D181BFDBDB5DCC30 /* ControlTrigger.h */,
+				52A7E4147FF9D5E75577882D /* ControlTriggerFilter.cpp */,
+				B012C62EE4072F16D5DE113C /* ControlTriggerFilter.h */,
+				085251ECC95622B4F5F46592 /* ControlValue.cpp */,
+				2501FC3E238E5CA99D8B1DA8 /* ControlValue.h */,
+				912B0F60D136FD295453ABE1 /* ControlXYSpeed.cpp */,
+				E2159E3857F32A7EFF0B24E9 /* ControlXYSpeed.h */,
+				687A6CE8339BEB440CC638C0 /* DelayUtils.cpp */,
+				919101B3437228B6B103A5E0 /* DelayUtils.h */,
+				EFA2800B111390D8B8064B05 /* DSPUtils.cpp */,
+				68A1164B42DD7CDE75FC5EC4 /* DSPUtils.h */,
+				32A5471EF471C28EBE8637C5 /* Effect.cpp */,
+				85145BBCD41CDFDCDC185785 /* Effect.h */,
+				86DB42AA673946157E6A4405 /* Filters.cpp */,
+				CF46EECCFE2AADBA65A93C3C /* Filters.h */,
+				2F21D82FAF1D2B1811111158 /* FilterUtils.cpp */,
+				FF1D503123AB2A2B0A1A6488 /* FilterUtils.h */,
+				C3B49FAC3F721A76F4C098F5 /* FixedValue.cpp */,
+				176EE5B1696DC752A7FD2301 /* FixedValue.h */,
+				F1C8C969D57E1FB00230A380 /* Generator.cpp */,
+				4B129671117F6B2BD82F075F /* Generator.h */,
+				809953FDECE2567422DA48F6 /* LFNoise.cpp */,
+				98A19DF6DF50375C1C21CEA5 /* LFNoise.h */,
+				16CC054CE0E0E760149C1582 /* Mixer.cpp */,
+				017087480F4A5D71BFC73520 /* Mixer.h */,
+				9202EB574F57B4D5FCC12A3F /* MonoToStereoPanner.cpp */,
+				D26F8D79D34D26A27B606B69 /* MonoToStereoPanner.h */,
+				CFC27CA934AFD26D485F92F5 /* Noise.cpp */,
+				B945D1BB0D4540BF9AE9247D /* Noise.h */,
+				3135A80A0104E1DE64D7C128 /* PolySynth.cpp */,
+				F1A74C3ED76CB1ABDDD4F30A /* PolySynth.h */,
+				7222651D1AE4D5C41BD64474 /* RampedValue.cpp */,
+				88F8FAD1117E49D4522E5B4C /* RampedValue.h */,
+				2F77CC46B7C906D5536B3638 /* RectWave.cpp */,
+				52771590A61475002F9B81E5 /* RectWave.h */,
+				023F761D585AD8150655ACF3 /* Reverb.cpp */,
+				2BA0863A2E7579E610328C22 /* Reverb.h */,
+				BC4A78C1BA5C9EF4288B6336 /* RingBuffer.cpp */,
+				60522A1DCBB9574884F1C011 /* RingBuffer.h */,
+				E88991BB728D6B725871B31B /* SampleTable.cpp */,
+				857C1E68227D32D8169979DF /* SampleTable.h */,
+				8E7F2F79F058C70EDDCA4D9D /* SawtoothWave.cpp */,
+				DFAB56F0F4AAC75A300D5FAC /* SawtoothWave.h */,
+				63E13035BD9C933F56D5CCA8 /* SineWave.cpp */,
+				15DFB9D8735223B30D2C333B /* SineWave.h */,
+				37E9651EF0A1FFDBE2840ADB /* SquareWave.h */,
+				BCDDB9FF49AEED30B3484C9F /* StereoDelay.cpp */,
+				E693A89CF7E8EDB084680C7F /* StereoDelay.h */,
+				68C2BF9199A0FAB7B19A2729 /* Synth.cpp */,
+				E0903B96EE7AE731AEBC2E22 /* Synth.h */,
+				B48E79E8B5FFBA4446EED9D7 /* TableLookupOsc.cpp */,
+				D5FE344DF5D32119A03452F4 /* TableLookupOsc.h */,
+				47A72ADF783B85D421EBEEFB /* TonicCore.h */,
+				2EA8D9DF4C81CCD2E6A74A4D /* TonicFrames.cpp */,
+				963DDECEE8725F776266D5C5 /* TonicFrames.h */,
+				C0F7CDF0059616F869238E65 /* TriangleWave.h */,
+			);
+			name = Tonic;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* ScanSynth.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				678E130917951536005B6D19 /* Icon.png */,
+				678E130717951530005B6D19 /* Icon@2x.png */,
+				678E130B1795153C005B6D19 /* Default.png */,
+				678E130D17951540005B6D19 /* Default@2x.png */,
+				678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */,
+				E4D8936A11527B74007E1F53 /* src */,
+				BB24E1F710DAA51900E9C588 /* openFrameworks */,
+				BB16F26B0F2B646B00518274 /* addons */,
+				BB16E9930F2B1E5900518274 /* libs */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* core frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E41D400613B39D2100A75A5D /* AVFoundation.framework */,
+				E41D400713B39D2100A75A5D /* CoreMedia.framework */,
+				E41D400813B39D2100A75A5D /* CoreVideo.framework */,
+				E41D400913B39D2100A75A5D /* MapKit.framework */,
+				53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */,
+				E4A823A312561BE3002F86A2 /* CoreGraphics.framework */,
+				BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */,
+				BB16EBD80F2B2AB500518274 /* QuartzCore.framework */,
+				BB16EBD10F2B2A9500518274 /* OpenGLES.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				5326AEA710A23A0500278DE6 /* CoreLocation.framework */,
+				67DFA53419F92A5E003B3434 /* Accelerate.framework */,
+			);
+			name = "core frameworks";
+			sourceTree = "<group>";
+		};
+		3659747FA7D45BE871634DFA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D9C3A0C625A33BAF86E2A263 /* ofxTonic.h */,
+				B5B244977BB30039002B144F /* ofxTonicSynth.cpp */,
+				AFF591A00876353DAAD8538C /* ofxTonicSynth.h */,
+				0E79F97A89352266EDC34BFD /* Tonic */,
+				6EAC2FD3A86032CCC6513C5D /* Tonic.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		6948EE371B920CB800B5AC1A /* local_addons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = local_addons;
+			sourceTree = "<group>";
+		};
+		76271A12053DA157D2DB4F78 /* ofxTonic */ = {
+			isa = PBXGroup;
+			children = (
+				3659747FA7D45BE871634DFA /* src */,
+			);
+			name = ofxTonic;
+			sourceTree = "<group>";
+		};
+		BB16E9930F2B1E5900518274 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				BBE5E94E0F497BD800F28951 /* core */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		BB16F26B0F2B646B00518274 /* addons */ = {
+			isa = PBXGroup;
+			children = (
+				76271A12053DA157D2DB4F78 /* ofxTonic */,
+			);
+			name = addons;
+			sourceTree = "<group>";
+		};
+		BB24E1F710DAA51900E9C588 /* openFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E41D40FD13B3A0D800A75A5D /* iOS+OFLib.xcodeproj */,
+				32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */,
+				BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */,
+				E41D3EE513B3906D00A75A5D /* CoreOF.xcconfig */,
+				6948EE371B920CB800B5AC1A /* local_addons */,
+				E41D3ED613B38FB500A75A5D /* Project.xcconfig */,
+			);
+			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		BBE5E94E0F497BD800F28951 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				29B97323FDCFA39411CA2CEA /* core frameworks */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
+		E41D40FE13B3A0D800A75A5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E41D410213B3A0D800A75A5D /* libofxiOS_iphoneos_Debug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4D8936A11527B74007E1F53 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8936B11527B74007E1F53 /* main.mm */,
+				E4D8936D11527B74007E1F53 /* ofApp.mm */,
+				E4D8936C11527B74007E1F53 /* ofApp.h */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* ScanSynth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ScanSynth" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				9255DD331112741900D6945E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E41D410413B3A11300A75A5D /* PBXTargetDependency */,
+			);
+			name = ScanSynth;
+			productName = iPhone;
+			productReference = 1D6058910D05DD3D006BFB54 /* ScanSynth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ScanSynth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E41D40FE13B3A0D800A75A5D /* Products */;
+					ProjectRef = E41D40FD13B3A0D800A75A5D /* iOS+OFLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* ScanSynth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E41D410213B3A0D800A75A5D /* libofxiOS_iphoneos_Debug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libofxiOS_iphoneos_Debug.a;
+			remoteRef = E41D410113B3A0D800A75A5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678E130817951530005B6D19 /* Icon@2x.png in Resources */,
+				678E130A17951536005B6D19 /* Icon.png in Resources */,
+				678E130C1795153C005B6D19 /* Default.png in Resources */,
+				678E130E17951540005B6D19 /* Default@2x.png in Resources */,
+				678E131017951549005B6D19 /* Default-568h@2x~iphone.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9255DD331112741900D6945E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -avz --exclude='.DS_Store' \"${SRCROOT}/bin/data/\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
+				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
+				1FEE51E4353272821CD46B2B /* ofxTonicSynth.cpp in Sources */,
+				98BEBC6CD820CC94C9E1820A /* ADSR.cpp in Sources */,
+				0EDB7EAE7D531614F30989B5 /* Arithmetic.cpp in Sources */,
+				8680A19142F714C3FEEC1DE8 /* AudioFileUtils.cpp in Sources */,
+				0EED280DA046B5F1D5D56BD2 /* BasicDelay.cpp in Sources */,
+				82DDD10F871CB203FB9F7982 /* BitCrusher.cpp in Sources */,
+				EDF99053F7EB8764E3D7938B /* BLEPOscillator.cpp in Sources */,
+				5DE17D831E162440E066C370 /* BufferFiller.cpp in Sources */,
+				2A0E78484C3AE5EEA2A97F5E /* BufferPlayer.cpp in Sources */,
+				6514DC7E22C3B7DC1FB0C3B3 /* CombFilter.cpp in Sources */,
+				B4907B79ADE43D245CAB0EB6 /* CompressorLimiter.cpp in Sources */,
+				D7E5DECCE17EDB8C9091C3F3 /* ControlArithmetic.cpp in Sources */,
+				9F0EB87185C49652D6B4CF41 /* ControlCallback.cpp in Sources */,
+				6B63FC7F9131A4458144B291 /* ControlChangeNotifier.cpp in Sources */,
+				A5A1C66C69F171040E6BC04E /* ControlComparison.cpp in Sources */,
+				7E89DC79CCC53308031648F2 /* ControlConditioner.cpp in Sources */,
+				0D10EBD1D03437932A26EA10 /* ControlCounter.cpp in Sources */,
+				D49C8E697AEB3B1E093246EF /* ControlDbToLinear.cpp in Sources */,
+				6F448633633AA19B04D12E67 /* ControlDelay.cpp in Sources */,
+				E1DA54DC2F47CBA907DC819C /* ControlFloor.cpp in Sources */,
+				71E90C35C3E4134C2D2C3F96 /* ControlGenerator.cpp in Sources */,
+				0CA63AB87703EEA7D203DFDF /* ControlMetro.cpp in Sources */,
+				C726BBE7E8951B0FBEC670B2 /* ControlMetroDivider.cpp in Sources */,
+				D3CBD2FDA4BCA7DC336C03E4 /* ControlMidiToFreq.cpp in Sources */,
+				1F659291652C32F0DA74A995 /* ControlParameter.cpp in Sources */,
+				E6E25C8479E3C3FC9FEA79D8 /* ControlPrinter.cpp in Sources */,
+				3B4F2BE29B4D742CF6E38447 /* ControlPulse.cpp in Sources */,
+				82DFBD3D4ABB48E68A5823A3 /* ControlRandom.cpp in Sources */,
+				D0171449ACF3C4BCCA5209BB /* ControlRecorder.cpp in Sources */,
+				CB22B44D81628C27A777529B /* ControlSnapToScale.cpp in Sources */,
+				3B0DC3D338A7D340B029881C /* ControlStepper.cpp in Sources */,
+				DEBFE6CAF2C5A96AAF189F32 /* ControlSwitcher.cpp in Sources */,
+				75891C4F6FF521EF5BC68DAE /* ControlTrigger.cpp in Sources */,
+				29FC6FFC02EC6540F411830C /* ControlTriggerFilter.cpp in Sources */,
+				FA855EBD7B4DBA08CD4BD302 /* ControlValue.cpp in Sources */,
+				F7C90FDC03DF91D96EC11E0C /* ControlXYSpeed.cpp in Sources */,
+				DCF18C7622819DA97B1DC4F9 /* DelayUtils.cpp in Sources */,
+				48323106D7DAB9FE66C3DDAC /* DSPUtils.cpp in Sources */,
+				8536FE193A1D5F9C8619698C /* Effect.cpp in Sources */,
+				CF121031E7A279229CAB376A /* Filters.cpp in Sources */,
+				47FFB9E6A53877A65AE13A0C /* FilterUtils.cpp in Sources */,
+				E0E3127AA73EF83D610F8858 /* FixedValue.cpp in Sources */,
+				57BE127E9364F7335F78F11C /* Generator.cpp in Sources */,
+				6D4AD5F084913BF4D630A2B4 /* LFNoise.cpp in Sources */,
+				61DD0EB4BD8830BAAE5A53F9 /* Mixer.cpp in Sources */,
+				BBD1FC0FAB93A2A1C14C1461 /* MonoToStereoPanner.cpp in Sources */,
+				524BE5753E9BDE57003DFD0D /* Noise.cpp in Sources */,
+				F7B1B67CCB91B8EED2432AC7 /* PolySynth.cpp in Sources */,
+				F7CA83B1FF349ECC18CBF3C7 /* RampedValue.cpp in Sources */,
+				7E4C226630DB3D65ECBD63FF /* RectWave.cpp in Sources */,
+				FD13915768EE2606AB0F90BE /* Reverb.cpp in Sources */,
+				66A3482341B5C5D1B8E1A18C /* RingBuffer.cpp in Sources */,
+				CC8BDF7CA9962753A9DAFFD0 /* SampleTable.cpp in Sources */,
+				E36598F4EF3EDD79DEA02CDE /* SawtoothWave.cpp in Sources */,
+				4184E4DE148192310822789D /* SineWave.cpp in Sources */,
+				A080206DDA89F3B42CC45CD4 /* StereoDelay.cpp in Sources */,
+				4EC9BD70971596251B71EABB /* Synth.cpp in Sources */,
+				29095D52D314A0AD6E135CEF /* TableLookupOsc.cpp in Sources */,
+				C64234F4217B13F769EFC32F /* TonicFrames.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E41D410413B3A11300A75A5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iPhone+OF Static Library";
+			targetProxy = E41D410313B3A11300A75A5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
+				INFOPLIST_FILE = "ofxiOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				PRODUCT_NAME = ScanSynth;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
+				INFOPLIST_FILE = "ofxiOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				PRODUCT_NAME = ScanSynth;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E41D3ED613B38FB500A75A5D /* Project.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
+				COMPRESS_PNG_FILES = NO;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_PROTOTYPE_CONVERSION = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../../openFrameworks/addons/ofxTonic/src,
+					../../../../openFrameworks/addons/ofxTonic/src/Tonic,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WARNING_LDFLAGS = "-no_arch_warnings";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E41D3ED613B38FB500A75A5D /* Project.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
+				COMPRESS_PNG_FILES = NO;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../../openFrameworks/addons/ofxTonic/src,
+					../../../../openFrameworks/addons/ofxTonic/src/Tonic,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WARNING_LDFLAGS = "-no_arch_warnings";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ScanSynth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ScanSynth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
