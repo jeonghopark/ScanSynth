@@ -78,7 +78,7 @@ public:
     int doubleTouchCount;
     bool bFrontCam;
     ofVideoGrabber grabber;
-    ofTexture tex;
+    ofTexture cameraTex;
     unsigned char * pix;
         
     vector<ofColor> pixelColor;

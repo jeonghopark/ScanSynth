@@ -6,21 +6,28 @@ int scale[20] = {-48,-24,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,36,48};
 
 
 #include "ofApp.h"
+#include <AVFoundation/AVFoundation.h>
 
 
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    //    [[AVAudioSession sharedInstance] setDelegate:self];
+    //    NSError *error = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
 
-//    ofSetOrientation(OF_ORIENTATION_90_RIGHT);
     ofSetFrameRate(60);
+    ofEnableAlphaBlending();
+        
+//    ofxAccelerometer.setup();               //accesses accelerometer data
+//    ofxiPhoneAlerts.addListener(this);      //allows elerts to appear while app is running
+//	ofRegisterTouchEvents(this);            //method that passes touch events
     
-    ofxAccelerometer.setup();               //accesses accelerometer data
-    ofxiPhoneAlerts.addListener(this);      //allows elerts to appear while app is running
-	ofRegisterTouchEvents(this);            //method that passes touch events
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     plotHeight = 128;
     bufferSize = 512;
@@ -33,16 +40,16 @@ void ofApp::setup(){
 //    grabber.setDeviceID(cameraDevice);
     
     
-    cameraWidth = 480;
-    cameraHeight = 360;
+    cameraWidth = 360;
+    cameraHeight = 480;
     
     
     if (TARGET_IPHONE_SIMULATOR) {
-        debugMovie.load("debug_movie.mp4");
+        debugMovie.load("debug_movie.mov");
         debugMovie.play();
     } else {
         grabber.setDesiredFrameRate(30);
-        grabber.setup(cameraWidth, cameraHeight, OF_PIXELS_BGRA);
+        grabber.setup(cameraWidth, cameraHeight, OF_PIXELS_BGR);
     }
     
     
@@ -57,10 +64,10 @@ void ofApp::setup(){
     }
 	
     
-    tex.allocate(cameraWidth, cameraHeight, GL_RGB);
+    cameraTex.allocate(cameraWidth, cameraHeight * 0.25, GL_RGB);
 	
     
-	pix = new unsigned char[ (int)( cameraWidth * cameraHeight * 3.0) ];
+	pix = new unsigned char[ (int)(cameraWidth * cameraHeight * 0.25 * 4.0) ];
     
     //    videoInput = [[AVCaptureDeviceInput alloc] init];
     
@@ -127,89 +134,90 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::calculatePixel(unsigned char * src){
     
-    for (int i=0; i<cameraHeight; i++){
-        for (int j=cameraWidth*3/4; j<cameraWidth*3; j++){
-            int _index = i * cameraWidth*3 + j;
-            pix[_index ] = src[_index];
-        }
-    }
-    
-    tex.loadData(pix, cameraWidth, cameraHeight, GL_RGBA);
-    
-    for (int i=0; i<cameraHeight; i++){
-        int _index = cameraWidth*3 * i + cameraWidth*3/4;
-        ofColor _temp;
-        _temp.r = pix[_index];
-        _temp.g = pix[_index+1];
-        _temp.b = pix[_index+2];
-        pixelColor[i] = _temp;
-    }
-    
-    
-    int _leftLineRatio = (int)cameraHeight / leftTwentyLineNumber;
-    for (int i=0; i<cameraHeight; i+=_leftLineRatio) {
-        int _index = cameraWidth*3 * i + cameraWidth*3/4;
-        ofColor _temp;
-        _temp.r = pix[_index];
-        _temp.g = pix[_index+1];
-        _temp.b = pix[_index+2];
-        twentyPixelColor.push_back(_temp);
-        
-        LineColor _lineColor;
-        _lineColor.fRed = pix[_index];
-        _lineColor.fGreen = pix[_index+1];
-        _lineColor.fBlue = pix[_index+2];
-        linecolors.push_back(_lineColor);
-        
-    }
-    
-//    if (pixelColor.size()>cameraHeight) {
-//        pixelColor.erase( pixelColor.begin() );
+//    for (int i=0; i<cameraHeight; i++){
+//        for (int j=cameraWidth*3/4; j<cameraWidth*3; j++){
+//            int _index = i * cameraWidth*3 + j;
+//            pix[_index ] = src[_index];
+//        }
 //    }
     
-    
-    if (twentyPixelColor.size()>20) {
-        twentyPixelColor.clear();
-        linecolors.clear();
-    }
+    cameraTex.loadData(src, cameraWidth, cameraHeight * 0.25, GL_RGB);
     
     
-    for (int i=0; i<leftTwentyLineNumber; i++){
-        
-        float _sumColor = linecolors[i].fRed + linecolors[i].fGreen + linecolors[i].fBlue;
-        
-        LineOnOff _lineOnOff;
-        if (_sumColor<200) {
-            _lineOnOff.index = i;
-            _lineOnOff.bOnOff = true;
-            ofNotifyEvent(onOff[i], _lineOnOff);
-            ofRemoveListener(onOff[i], this, &ofApp::onOffTest);
-            
-        } else {
-            _lineOnOff.index = i;
-            _lineOnOff.bOnOff = false;
-            ofNotifyEvent(onOff[i], _lineOnOff);
-            ofAddListener(onOff[i], this, &ofApp::onOffTest);
-        }
-        
-        
-        if (linecolors[i].bNoteTrigger) {
-            synth1.setParameter("trigger1", 1);
-            synth1.setParameter("carrierPitch1", scale[i]+80);
-            linecolors[i].bNoteTrigger = false;
-            circleMovings[i].movVertical = ofGetWidth()/2;
-            circleMovings[i].movingFactor = circleMovigSpeed;
-        }
-        
-        if (circleMovings[i].bMovingTrigger) {
-            circleMovings[i].movVertical = circleMovings[i].movVertical - circleMovings[i].movingFactor;
-            if (circleMovings[i].movVertical < 0) {
-                circleMovings[i].movVertical = ofGetWidth()/2;
-                circleMovings[i].movingFactor = 0;
-            }
-        }
-        
-    }
+//    for (int i=0; i<cameraHeight; i++){
+//        int _index = cameraWidth*3 * i + cameraWidth*3/4;
+//        ofColor _temp;
+//        _temp.r = pix[_index];
+//        _temp.g = pix[_index+1];
+//        _temp.b = pix[_index+2];
+//        pixelColor[i] = _temp;
+//    }
+//    
+//    
+//    int _leftLineRatio = (int)cameraHeight / leftTwentyLineNumber;
+//    for (int i=0; i<cameraHeight; i+=_leftLineRatio) {
+//        int _index = cameraWidth*3 * i + cameraWidth*3/4;
+//        ofColor _temp;
+//        _temp.r = pix[_index];
+//        _temp.g = pix[_index+1];
+//        _temp.b = pix[_index+2];
+//        twentyPixelColor.push_back(_temp);
+//        
+//        LineColor _lineColor;
+//        _lineColor.fRed = pix[_index];
+//        _lineColor.fGreen = pix[_index+1];
+//        _lineColor.fBlue = pix[_index+2];
+//        linecolors.push_back(_lineColor);
+//        
+//    }
+//    
+////    if (pixelColor.size()>cameraHeight) {
+////        pixelColor.erase( pixelColor.begin() );
+////    }
+//    
+//    
+//    if (twentyPixelColor.size()>20) {
+//        twentyPixelColor.clear();
+//        linecolors.clear();
+//    }
+//    
+//    
+//    for (int i=0; i<leftTwentyLineNumber; i++){
+//        
+//        float _sumColor = linecolors[i].fRed + linecolors[i].fGreen + linecolors[i].fBlue;
+//        
+//        LineOnOff _lineOnOff;
+//        if (_sumColor<200) {
+//            _lineOnOff.index = i;
+//            _lineOnOff.bOnOff = true;
+//            ofNotifyEvent(onOff[i], _lineOnOff);
+//            ofRemoveListener(onOff[i], this, &ofApp::onOffTest);
+//            
+//        } else {
+//            _lineOnOff.index = i;
+//            _lineOnOff.bOnOff = false;
+//            ofNotifyEvent(onOff[i], _lineOnOff);
+//            ofAddListener(onOff[i], this, &ofApp::onOffTest);
+//        }
+//        
+//        
+//        if (linecolors[i].bNoteTrigger) {
+//            synth1.setParameter("trigger1", 1);
+//            synth1.setParameter("carrierPitch1", scale[i]+80);
+//            linecolors[i].bNoteTrigger = false;
+//            circleMovings[i].movVertical = ofGetWidth()/2;
+//            circleMovings[i].movingFactor = circleMovigSpeed;
+//        }
+//        
+//        if (circleMovings[i].bMovingTrigger) {
+//            circleMovings[i].movVertical = circleMovings[i].movVertical - circleMovings[i].movingFactor;
+//            if (circleMovings[i].movVertical < 0) {
+//                circleMovings[i].movVertical = ofGetWidth()/2;
+//                circleMovings[i].movingFactor = 0;
+//            }
+//        }
+//        
+//    }
 
     
 }
@@ -238,57 +246,56 @@ void ofApp::draw() {
     
     ofPushMatrix();
     ofTranslate(0, 0);
-//    ofRotateX(180);
     
-    float _videoRatio = 640 / cameraHeight;
-	tex.draw( 0, 0, cameraWidth * _videoRatio, cameraHeight * _videoRatio );
+    float _videoRatio =  screenW / cameraWidth;
+	cameraTex.draw( 0, 0, cameraWidth, cameraHeight * 0.25 );
 
-    ofPushMatrix();
-    ofPushStyle();
-    
-    for (int i=0; i<cameraHeight; i++) {
-        ofSetLineWidth( _videoRatio );
-        ofSetColor(pixelColor[i]);
-        
-        float _leftEndHeight = 20;
-        float _leftEnd = ofGetHeight()/2 + (i * _leftEndHeight / cameraHeight) - _leftEndHeight/2;
-        
-        ofPoint _rightPoint = ofPoint( ofGetWidth()*6/8, i * _videoRatio );
-        ofPoint _leftPoint = ofPoint( ofGetWidth()*5/8, _leftEnd );
-        ofDrawLine(_leftPoint, _rightPoint);
-    }
-    
-    ofPopStyle();
-    ofPopMatrix();
-
-    
-
-    
-    ofPushMatrix();
-    ofPushStyle();
-
-    for (int i=0; i<leftTwentyLineNumber; i++) {
-        
-        if (twentyPixelColor.size()>0) {
-            ofSetColor(twentyPixelColor[i]);
-            ofSetLineWidth(2);
-            
-            float _leftEnd = ofGetHeight()/2 - leftTwentyLineNumber/2 + i;
-            float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*10 + i*10;
-            
-            ofPoint _leftPoint = ofPoint(ofGetWidth()*5/8, _leftEnd);
-            ofPoint _rightPoint = ofPoint(ofGetWidth()*4/8, _left2ndEnd);
-            ofDrawLine(_leftPoint, _rightPoint);
-            
-            ofPoint _left2ndPoint = ofPoint(ofGetWidth()/2, _left2ndEnd);
-            ofPoint _right2ndPoint = ofPoint(0, _left2ndEnd);
-            ofDrawLine(_left2ndPoint, _right2ndPoint);
-        }
-        
-    }
-    
-    ofPopStyle();
-    ofPopMatrix();
+//    ofPushMatrix();
+//    ofPushStyle();
+//    
+//    for (int i=0; i<cameraHeight; i++) {
+//        ofSetLineWidth( _videoRatio );
+//        ofSetColor(pixelColor[i]);
+//        
+//        float _leftEndHeight = 20;
+//        float _leftEnd = ofGetHeight()/2 + (i * _leftEndHeight / cameraHeight) - _leftEndHeight/2;
+//        
+//        ofPoint _rightPoint = ofPoint( ofGetWidth()*6/8, i * _videoRatio );
+//        ofPoint _leftPoint = ofPoint( ofGetWidth()*5/8, _leftEnd );
+//        ofDrawLine(_leftPoint, _rightPoint);
+//    }
+//    
+//    ofPopStyle();
+//    ofPopMatrix();
+//
+//    
+//
+//    
+//    ofPushMatrix();
+//    ofPushStyle();
+//
+//    for (int i=0; i<leftTwentyLineNumber; i++) {
+//        
+//        if (twentyPixelColor.size()>0) {
+//            ofSetColor(twentyPixelColor[i]);
+//            ofSetLineWidth(2);
+//            
+//            float _leftEnd = ofGetHeight()/2 - leftTwentyLineNumber/2 + i;
+//            float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*10 + i*10;
+//            
+//            ofPoint _leftPoint = ofPoint(ofGetWidth()*5/8, _leftEnd);
+//            ofPoint _rightPoint = ofPoint(ofGetWidth()*4/8, _left2ndEnd);
+//            ofDrawLine(_leftPoint, _rightPoint);
+//            
+//            ofPoint _left2ndPoint = ofPoint(ofGetWidth()/2, _left2ndEnd);
+//            ofPoint _right2ndPoint = ofPoint(0, _left2ndEnd);
+//            ofDrawLine(_left2ndPoint, _right2ndPoint);
+//        }
+//        
+//    }
+//    
+//    ofPopStyle();
+//    ofPopMatrix();
     
     
 //    ofPushMatrix();
@@ -324,9 +331,9 @@ void ofApp::draw() {
 //    ofPopStyle();
 //    ofPopMatrix();
     
-//    grabber.draw(0, 0, cameraWidth / 4, cameraHeight / 4);
+//    grabber.draw(0, 0, cameraWidth, cameraHeight);
     
-    debugMovie.draw(0, 0, 480, 360);
+//    debugMovie.draw(0, 0, 480, 360);
 
 
 }
@@ -377,25 +384,25 @@ void ofApp::touchUp(ofTouchEventArgs & touch){
 //--------------------------------------------------------------
 void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
  
-    if (touch.id==0) {
-        doubleTouchCount++;
-        if (doubleTouchCount%2==0) {
-            bFrontCam = !bFrontCam;
-        }
-    }
-    
-    if (bFrontCam==0) {
-        grabber.close();
-        grabber.setDeviceID(0);
-        grabber.setup(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
-        grabber.update();
-    }
-    if (bFrontCam==1) {
-        grabber.close();
-        grabber.setDeviceID(1);
-        grabber.setup(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
-        grabber.update();
-    }
+//    if (touch.id==0) {
+//        doubleTouchCount++;
+//        if (doubleTouchCount%2==0) {
+//            bFrontCam = !bFrontCam;
+//        }
+//    }
+//    
+//    if (bFrontCam==0) {
+//        grabber.close();
+//        grabber.setDeviceID(0);
+//        grabber.setup(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
+//        grabber.update();
+//    }
+//    if (bFrontCam==1) {
+//        grabber.close();
+//        grabber.setDeviceID(1);
+//        grabber.setup(cameraWidth, cameraHeight,  OF_PIXELS_BGRA);
+//        grabber.update();
+//    }
 
     
 }

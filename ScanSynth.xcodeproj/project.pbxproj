@@ -54,6 +54,7 @@
 		9F0EB87185C49652D6B4CF41 /* ControlCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4F813F8FC93CFD10E41855 /* ControlCallback.cpp */; };
 		A080206DDA89F3B42CC45CD4 /* StereoDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCDDB9FF49AEED30B3484C9F /* StereoDelay.cpp */; };
 		A5A1C66C69F171040E6BC04E /* ControlComparison.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 335B172B0B88819777FE07DD /* ControlComparison.cpp */; };
+		A87F03AA1BE7CFAC00867CBE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87F03A91BE7CFAC00867CBE /* AssetsLibrary.framework */; };
 		B4907B79ADE43D245CAB0EB6 /* CompressorLimiter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5279A0818F311255D5D174C8 /* CompressorLimiter.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
@@ -199,6 +200,7 @@
 		A40A7CE8FBCF378D0A610B7C /* ControlParameter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlParameter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlParameter.cpp; sourceTree = SOURCE_ROOT; };
 		A56CCF1261DFF0806E6EF0E3 /* ControlParameter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ControlParameter.h; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlParameter.h; sourceTree = SOURCE_ROOT; };
 		A74D77E09C4E2FCC66569157 /* ControlPrinter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlPrinter.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlPrinter.cpp; sourceTree = SOURCE_ROOT; };
+		A87F03A91BE7CFAC00867CBE /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AA4F813F8FC93CFD10E41855 /* ControlCallback.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlCallback.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlCallback.cpp; sourceTree = SOURCE_ROOT; };
 		ACCF177C70FC4A32CE6F95A1 /* ControlRecorder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ControlRecorder.cpp; path = ../../../../openFrameworks/addons/ofxTonic/src/Tonic/ControlRecorder.cpp; sourceTree = SOURCE_ROOT; };
 		AFF591A00876353DAAD8538C /* ofxTonicSynth.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTonicSynth.h; path = ../../../../openFrameworks/addons/ofxTonic/src/ofxTonicSynth.h; sourceTree = SOURCE_ROOT; };
@@ -265,6 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87F03AA1BE7CFAC00867CBE /* AssetsLibrary.framework in Frameworks */,
 				E41D421413B3A95300A75A5D /* libofxiOS_iphoneos_Debug.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -422,6 +425,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A87F03A91BE7CFAC00867CBE /* AssetsLibrary.framework */,
 				678E130917951536005B6D19 /* Icon.png */,
 				678E130717951530005B6D19 /* Icon@2x.png */,
 				678E130B1795153C005B6D19 /* Default.png */,
@@ -723,8 +727,9 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				PRODUCT_NAME = ScanSynth;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Debug;
@@ -736,8 +741,9 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				PRODUCT_NAME = ScanSynth;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Release;
