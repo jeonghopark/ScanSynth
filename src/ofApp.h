@@ -84,10 +84,10 @@ public:
     ofPixels bufferPixels;
         
     vector<ofColor> pixelColor;
-    vector<ofColor> twentyPixelColor;
+    vector<ofColor> notePixelColor;
     vector<float> colorNumber;
     vector<float> randomYPos;
-    int leftTwentyLineNumber;
+    int noteLineNum;
     
     vector<LineColor> linecolors;
     vector<CircleMoving> circleMovings;
@@ -112,6 +112,12 @@ public:
     int quarterCameraHeight;
     float videoRatio;
     
+    float coreSizeRatio;
+    float scoreSizeRatio;
+
+    
+    void drawBasicLine();
+    void drawScoreBase();
     
 };
 

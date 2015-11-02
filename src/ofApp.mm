@@ -15,16 +15,16 @@ void ofApp::setup(){
     
     //    [[AVAudioSession sharedInstance] setDelegate:self];
     //    NSError *error = nil;
-//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-//    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    //    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    //    [[AVAudioSession sharedInstance] setActive:YES error:nil];
     //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     
-//
-
+    //
+    
     ofSetFrameRate(60);
     ofEnableAlphaBlending();
-
+    
     ofBackground(0);
     
     
@@ -40,16 +40,16 @@ void ofApp::setup(){
     cameraHeight = 480;
     quarterCameraHeight = 480 * 0.25;
     
-
+    
     if (TARGET_IPHONE_SIMULATOR) {
         debugMovie.load("debug_movie.mov");
         debugMovie.play();
-//        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
+        //        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
     } else {
         grabber.setDeviceID( 0 );
         grabber.setDesiredFrameRate(30);
         grabber.setup(cameraWidth, cameraHeight, OF_PIXELS_BGRA);
-//        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
+        //        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
     }
     
     
@@ -57,7 +57,7 @@ void ofApp::setup(){
     pix = new unsigned char[ (int)(cameraWidth * quarterCameraHeight * 3.0) ];
     
     
-
+    
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         bIPhone = false;
         screenW = ofGetWidth();
@@ -70,16 +70,20 @@ void ofApp::setup(){
     
     
     videoRatio =  screenW / cameraWidth;
-
     
+    coreSizeRatio = screenW / 5120.0;
+    scoreSizeRatio = screenW / 914.0;
+
     
     //    videoInput = [[AVCaptureDeviceInput alloc] init];
     
-    leftTwentyLineNumber = 20;
     
     
     pixelColor.resize(cameraWidth);
     
+    
+    noteLineNum = 24;
+    notePixelColor.resize(noteLineNum);
     
     ControlParameter carrierPitch1 = synth1.addParameter("carrierPitch1");
     float amountMod1 = 4;
@@ -94,11 +98,11 @@ void ofApp::setup(){
     synthMain.setOutputGen( synth1 * 0.8f );
     
     
-    for (int i=0; i<leftTwentyLineNumber; i++) {
+    for (int i=0; i<noteLineNum; i++) {
         CircleMoving _lc;
         _lc.movingFactor = 3;
         _lc.movVertical = ofGetWidth()/2;
-        float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*40 + i*10;
+        float _left2ndEnd = ofGetHeight()/2 - noteLineNum/2*40 + i*10;
         _lc.position = _left2ndEnd;
         circleMovings.push_back(_lc);
     }
@@ -106,9 +110,6 @@ void ofApp::setup(){
     circleMovigSpeed = 7;
     
     ofSoundStreamSetup(2, 0, this, 44100, 256, 4);
-    
-    float _middlePointX = screenW * 0.5;
-    float _middlePointY = quarterCameraHeight + 300;
     
     
 }
@@ -123,29 +124,29 @@ void ofApp::update(){
         debugMovie.update();
         if (debugMovie.isFrameNew()) {
             unsigned char * src = debugMovie.getPixels().getData();
-//            ofPixels & pixels = debugMovie.getPixels();
-//            if (pixels.size()>0) {
-//                for(int i = 0; i < pixels.size(); i++){
-//                    bufferPixels[i] = pixels[i];
-//                }
-//            }
+            //            ofPixels & pixels = debugMovie.getPixels();
+            //            if (pixels.size()>0) {
+            //                for(int i = 0; i < pixels.size(); i++){
+            //                    bufferPixels[i] = pixels[i];
+            //                }
+            //            }
             calculatePixel(src);
         }
-
+        
     } else {
         grabber.update();
         if (grabber.isFrameNew()) {
             unsigned char * src = grabber.getPixels().getData();
-//            ofPixels & pixels = grabber.getPixels();
-//            if (pixels.size()>0) {
-//                for(int i = 0; i < pixels.size(); i++){
-//                    bufferPixels[i] = pixels[i];
-//                }
-//            }
+            //            ofPixels & pixels = grabber.getPixels();
+            //            if (pixels.size()>0) {
+            //                for(int i = 0; i < pixels.size(); i++){
+            //                    bufferPixels[i] = pixels[i];
+            //                }
+            //            }
             calculatePixel(src);
-
+            
         }
-
+        
     }
     
 }
@@ -157,13 +158,13 @@ void ofApp::update(){
 void ofApp::calculatePixel(unsigned char * src){
     
     cameraTex.loadData(src, cameraWidth, quarterCameraHeight, GL_RGB);
-
-//    for (int i=0; i<cameraHeight; i++){
-//        for (int j=cameraWidth*1/4; j<cameraWidth*3; j++){
-//            int _index = i * cameraWidth*3 + j;
-//            pix[_index ] = src[_index];
-//        }
-//    }
+    
+    //    for (int i=0; i<cameraHeight; i++){
+    //        for (int j=cameraWidth*1/4; j<cameraWidth*3; j++){
+    //            int _index = i * cameraWidth*3 + j;
+    //            pix[_index ] = src[_index];
+    //        }
+    //    }
     
     
     
@@ -177,15 +178,26 @@ void ofApp::calculatePixel(unsigned char * src){
     }
     
     
-
-    //    int _leftLineRatio = (int)cameraHeight / leftTwentyLineNumber;
+    
+    for (int i=0; i<noteLineNum; i+=1){
+        int _index = cameraWidth * i * 3 / noteLineNum  + quarterCameraHeight * cameraWidth * 3;
+        ofColor _temp;
+        _temp.r = src[_index];
+        _temp.g = src[_index+1];
+        _temp.b = src[_index+2];
+        notePixelColor[i] = _temp;
+    }
+    
+    
+    
+    //    int _leftLineRatio = (int)cameraHeight / noteLineNum;
     //    for (int i=0; i<cameraHeight; i+=_leftLineRatio) {
     //        int _index = cameraWidth*3 * i + cameraWidth*3/4;
     //        ofColor _temp;
     //        _temp.r = pix[_index];
     //        _temp.g = pix[_index+1];
     //        _temp.b = pix[_index+2];
-    //        twentyPixelColor.push_back(_temp);
+    //        notePixelColor.push_back(_temp);
     //
     //        LineColor _lineColor;
     //        _lineColor.fRed = pix[_index];
@@ -194,19 +206,23 @@ void ofApp::calculatePixel(unsigned char * src){
     //        linecolors.push_back(_lineColor);
     //
     //    }
+    
+    
+    
+    
     //
     ////    if (pixelColor.size()>cameraHeight) {
     ////        pixelColor.erase( pixelColor.begin() );
     ////    }
     //
     //
-    //    if (twentyPixelColor.size()>20) {
-    //        twentyPixelColor.clear();
+    //    if (notePixelColor.size()>20) {
+    //        notePixelColor.clear();
     //        linecolors.clear();
     //    }
     //
     //
-    //    for (int i=0; i<leftTwentyLineNumber; i++){
+    //    for (int i=0; i<noteLineNum; i++){
     //
     //        float _sumColor = linecolors[i].fRed + linecolors[i].fGreen + linecolors[i].fBlue;
     //
@@ -269,61 +285,21 @@ void ofApp::draw() {
     
     
     ofPushMatrix();
-    ofTranslate(0, 0);
-    
     cameraTex.draw( 0, 0, cameraWidth * videoRatio, quarterCameraHeight * videoRatio );
-    
-    ofPushMatrix();
-    ofPushStyle();
-
-    for (int i=0; i<pixelColor.size(); i++) {
-        ofSetColor(pixelColor[i]);
-        ofPoint _upPoint = ofPoint( i * videoRatio, quarterCameraHeight * videoRatio );
-        
-        float _sizeRatio = 0.125;
-        float _x = screenW * 0.5 - (pixelColor.size() - 1) * _sizeRatio * 0.5 + i * _sizeRatio;
-        float _y = quarterCameraHeight * videoRatio * 2;
-        ofPoint _downPoint = ofPoint( _x, _y );
-        ofDrawLine( _upPoint, _downPoint );
-    }
-
-    ofPopStyle();
-    ofPopMatrix();
-    
 
     
-    //    ofPushMatrix();
-    //    ofPushStyle();
-    //
-    //    for (int i=0; i<leftTwentyLineNumber; i++) {
-    //
-    //        if (twentyPixelColor.size()>0) {
-    //            ofSetColor(twentyPixelColor[i]);
-    //            ofSetLineWidth(2);
-    //
-    //            float _leftEnd = ofGetHeight()/2 - leftTwentyLineNumber/2 + i;
-    //            float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*10 + i*10;
-    //
-    //            ofPoint _leftPoint = ofPoint(ofGetWidth()*5/8, _leftEnd);
-    //            ofPoint _rightPoint = ofPoint(ofGetWidth()*4/8, _left2ndEnd);
-    //            ofDrawLine(_leftPoint, _rightPoint);
-    //
-    //            ofPoint _left2ndPoint = ofPoint(ofGetWidth()/2, _left2ndEnd);
-    //            ofPoint _right2ndPoint = ofPoint(0, _left2ndEnd);
-    //            ofDrawLine(_left2ndPoint, _right2ndPoint);
-    //        }
-    //
-    //    }
-    //
-    //    ofPopStyle();
-    //    ofPopMatrix();
+    
+    drawScoreBase();
+    
+    drawBasicLine();
+    
     
     
     //    ofPushMatrix();
     //    ofPushStyle();
     //
-    //    for (int i=0; i<leftTwentyLineNumber; i++) {
-    //        float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*10 + i*10;
+    //    for (int i=0; i<noteLineNum; i++) {
+    //        float _left2ndEnd = ofGetHeight()/2 - noteLineNum/2*10 + i*10;
     //        ofCircle(circleMovings[i].movVertical, _left2ndEnd, 3);
     //    }
     //
@@ -358,6 +334,101 @@ void ofApp::draw() {
     
     
 }
+
+
+
+
+//--------------------------------------------------------------
+void ofApp::drawBasicLine(){
+
+    float _coreSizeRatio = coreSizeRatio;
+    float _scoreSizeRatio = scoreSizeRatio;
+    float _corePointY = quarterCameraHeight * videoRatio * 1.5;
+    float _scoreUpY = quarterCameraHeight * videoRatio * 2;
+    
+    ofPushMatrix();
+    ofPushStyle();
+    
+    for (int i=0; i<pixelColor.size(); i++) {
+        ofSetColor(pixelColor[i]);
+        ofPoint _upPoint = ofPoint( i * videoRatio, quarterCameraHeight * videoRatio );
+        
+        float _sizeRatio = _coreSizeRatio;
+        float _x = screenW * 0.5 - (pixelColor.size() - 1) * _sizeRatio * 0.5 + i * _sizeRatio;
+        float _y = _corePointY;
+        ofPoint _downPoint = ofPoint( _x, _y );
+        ofDrawLine( _upPoint, _downPoint );
+    }
+    
+    ofPopStyle();
+    ofPopMatrix();
+    
+    
+    
+    ofPushMatrix();
+    ofPushStyle();
+    
+    for (int i=0; i<noteLineNum; i++) {
+        
+        ofSetLineWidth(2);
+        ofSetColor(notePixelColor[i]);
+        
+        float _upSizeRatio = _coreSizeRatio;
+        float _upX = screenW * 0.5 - (pixelColor.size() - 1) * _upSizeRatio * 0.5 + i * (pixelColor.size() - 1) * _upSizeRatio / noteLineNum;
+        float _upY = _corePointY;
+        ofPoint _upPoint = ofPoint(_upX, _upY);
+        
+        float _downSizeRatio = _scoreSizeRatio;
+        float _downX = screenW * 0.5 - (pixelColor.size() - 1) * _downSizeRatio * 0.5 + i * (pixelColor.size() - 1) * _downSizeRatio / noteLineNum;
+        float _downY = _scoreUpY;
+        ofPoint _downPoint = ofPoint(_downX, _downY);
+        
+        ofDrawLine(_upPoint, _downPoint);
+        
+        ofPoint _upScorePoint = ofPoint(_downX, _downY);
+        ofPoint _downScorePoint = ofPoint(_downX, screenH);
+        ofDrawLine(_upScorePoint, _downScorePoint);
+        
+        
+    }
+    
+    ofPopStyle();
+    ofPopMatrix();
+    
+
+    
+}
+
+
+
+//--------------------------------------------------------------
+void ofApp::drawScoreBase(){
+
+    
+    ofPushStyle();
+    ofSetColor(255);
+    
+    float _scoreUpY = quarterCameraHeight * videoRatio * 2;
+
+    float _baseScorebarLength = screenW * 0.25;
+    float _sX = screenW * 0.5 - _baseScorebarLength;
+    float _eX = screenW * 0.5 + _baseScorebarLength;
+    
+    for(int i=0; i<20; i++) {
+       
+        float _y = _scoreUpY + i * (screenH - _scoreUpY) / 20;
+        ofPoint _sPos = ofPoint( _sX, _y);
+        ofPoint _ePos = ofPoint( _eX, _y);
+        
+        ofDrawLine( _sPos, _ePos );
+        
+    }
+    
+    ofPopStyle();
+    
+    
+}
+
 
 
 
