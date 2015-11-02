@@ -22,26 +22,12 @@ void ofApp::setup(){
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
-	plotHeight = 128;
+    plotHeight = 128;
     bufferSize = 512;
-        
-//    drawBuffer.resize(bufferSize);
-//    middleBuffer.resize(bufferSize);
-//    audioBuffer.resize(bufferSize);
-//    
-//    drawBuffer2.resize(bufferSize);
-//    middleBuffer2.resize(bufferSize);
-//    audioBuffer2.resize(bufferSize);
-//    
-//    spectrogram.allocate(bufferSize*2, plotHeight, OF_IMAGE_GRAYSCALE);
-//    memset(spectrogram.getPixels(), 0, (int) (spectrogram.getWidth() * spectrogram.getHeight()) );
-//    spectrogramOffset = 0;
-//    
-//    spectrogram2.allocate(bufferSize*2, plotHeight, OF_IMAGE_GRAYSCALE);
-//    memset(spectrogram2.getPixels(), 0, (int) (spectrogram2.getWidth() * spectrogram2.getHeight()) );
-//    spectrogramOffset2 = 0;
+
     
-    ofBackground(10, 255);
+    ofBackground( 10 );
+    
     
 //    cameraDevice = 1;
 //    grabber.setDeviceID(cameraDevice);
@@ -97,8 +83,6 @@ void ofApp::setup(){
     synthMain.setOutputGen( synth1 * 0.8f );
     
     
-    
-    
     for (int i=0; i<leftTwentyLineNumber; i++) {
         CircleMoving _lc;
         _lc.movingFactor = 3;
@@ -112,7 +96,6 @@ void ofApp::setup(){
     
     ofSoundStreamSetup(2, 0, this, 44100, 256, 4);
 
-
     
 }
 
@@ -121,7 +104,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
+
     if (TARGET_IPHONE_SIMULATOR) {
         debugMovie.update();
         if (debugMovie.isFrameNew()) {
@@ -135,7 +118,7 @@ void ofApp::update(){
             calculatePixel(src);
         }
     }
-    
+
 }
 
 
@@ -281,27 +264,31 @@ void ofApp::draw() {
     
 
     
-//    ofPushMatrix();
-//    ofPushStyle();
-//    
-//    for (int i=0; i<leftTwentyLineNumber; i++) {
-//        ofSetColor(twentyPixelColor[i]);
-//        ofSetLineWidth(2);
-//        
-//        float _leftEnd = ofGetHeight()/2 - leftTwentyLineNumber/2 + i;
-//        float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*10 + i*10;
-//        
-//        ofPoint _leftPoint = ofPoint(ofGetWidth()*5/8, _leftEnd);
-//        ofPoint _rightPoint = ofPoint(ofGetWidth()*4/8, _left2ndEnd);
-//        ofLine(_leftPoint, _rightPoint);
-//
-//        ofPoint _left2ndPoint = ofPoint(ofGetWidth()/2, _left2ndEnd);
-//        ofPoint _right2ndPoint = ofPoint(0, _left2ndEnd);
-//        ofLine(_left2ndPoint, _right2ndPoint);
-//    }
-//    
-//    ofPopStyle();
-//    ofPopMatrix();
+    ofPushMatrix();
+    ofPushStyle();
+
+    for (int i=0; i<leftTwentyLineNumber; i++) {
+        
+        if (twentyPixelColor.size()>0) {
+            ofSetColor(twentyPixelColor[i]);
+            ofSetLineWidth(2);
+            
+            float _leftEnd = ofGetHeight()/2 - leftTwentyLineNumber/2 + i;
+            float _left2ndEnd = ofGetHeight()/2 - leftTwentyLineNumber/2*10 + i*10;
+            
+            ofPoint _leftPoint = ofPoint(ofGetWidth()*5/8, _leftEnd);
+            ofPoint _rightPoint = ofPoint(ofGetWidth()*4/8, _left2ndEnd);
+            ofDrawLine(_leftPoint, _rightPoint);
+            
+            ofPoint _left2ndPoint = ofPoint(ofGetWidth()/2, _left2ndEnd);
+            ofPoint _right2ndPoint = ofPoint(0, _left2ndEnd);
+            ofDrawLine(_left2ndPoint, _right2ndPoint);
+        }
+        
+    }
+    
+    ofPopStyle();
+    ofPopMatrix();
     
     
 //    ofPushMatrix();
@@ -354,6 +341,9 @@ void ofApp::exit(){
     
 }
 
+
+
+//--------------------------------------------------------------
 void ofApp::audioRequested(float *output, int Buffersize, int nChannels){
     
     synthMain.fillBufferOfFloats(output, bufferSize, nChannels);
@@ -370,9 +360,11 @@ void ofApp::touchDown(ofTouchEventArgs & touch){
 
 //--------------------------------------------------------------
 void ofApp::touchMoved(ofTouchEventArgs & touch){
+
     if (touch.id==0) {
         touchMovY = touch.y;
     }
+    
 }
 
 

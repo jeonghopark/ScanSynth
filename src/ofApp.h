@@ -80,11 +80,7 @@ public:
     ofVideoGrabber grabber;
     ofTexture tex;
     unsigned char * pix;
-    
-//    AVCaptureConnection         *videoConnection;
-//    AVCaptureVideoDataOutput    *videoOutput;
-//    AVCaptureDeviceInput        *videoInput;
-    
+        
     vector<ofColor> pixelColor;
     vector<ofColor> twentyPixelColor;
     vector<float> colorNumber;
@@ -98,30 +94,9 @@ public:
     float cameraWidth, cameraHeight;
     float screenW, screenH;
     float touchMovY;
-    
-    float parameter1, parameter2, parameter3, parameter4, parameter5;
-    float secondParameter1, secondParameter2, secondParameter3, secondParameter4, secondParameter5;
-    
-    int spectrogramWidth, spectrogramWidth2;
 
-	ofMutex soundMutex;
-    vector<float> drawBuffer, middleBuffer, audioBuffer;
-    vector<float> drawBins, middleBins, audioBins;
+    int plotHeight, bufferSize;
 
-    vector<float> drawBuffer2, middleBuffer2, audioBuffer2;
-    vector<float> drawBins2, middleBins2, audioBins2;
-
-	int plotHeight, bufferSize;
-
-    void plot(vector<float>& buffer, float scale, float offset);
-
-    int spectrogramOffset;
-	ofImage spectrogram;
-
-    int spectrogramOffset2;
-	ofImage spectrogram2;
-
-    vector<int> spectrum1PosX, spectrum2PosX;
     
     int circleMovigSpeed;
     
