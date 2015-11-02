@@ -68,7 +68,8 @@ public:
     void gotMemoryWarning();
     void deviceOrientationChanged(int newOrientation);
     
-    void audioRequested(float * output, int Buffersize, int nChannels);
+    void audioRequested (float * output, int bufferSize, int nChannels);
+    void audioReceived(float * input, int bufferSize, int nChannels);
     
     LineOnOff lineOnOffs;
     ofEvent<LineOnOff> onOff[20];
@@ -80,6 +81,7 @@ public:
     ofVideoGrabber grabber;
     ofTexture cameraTex;
     unsigned char * pix;
+    ofPixels bufferPixels;
         
     vector<ofColor> pixelColor;
     vector<ofColor> twentyPixelColor;
@@ -91,7 +93,7 @@ public:
     vector<CircleMoving> circleMovings;
     vector<InputMovie> inputVideo;
     
-    float cameraWidth, cameraHeight;
+    int cameraWidth, cameraHeight;
     float screenW, screenH;
     float touchMovY;
 
@@ -106,6 +108,9 @@ public:
     void calculatePixel(unsigned char * src);
     
     bool bIPhone;
+    
+    int quarterCameraHeight;
+    float videoRatio;
     
 };
 
