@@ -1,13 +1,11 @@
 // http://entropedia.co.uk/generative_music/#b64K9EqAQA%3D
 
-//int scale[20] = {-24,-12,-5,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,31,36};
-int scale[20] = {-48,-24,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,36,48};
-
+//int scale[24] = {-24,-12,-5,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,31,36};
+int scale[24] = {-48,-36,-28,-24,-16,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,28,36,48};
 
 
 #include "ofApp.h"
-//#include <AVFoundation/AVFoundation.h>
-
+#include <AVFoundation/AVFoundation.h>
 
 
 //--------------------------------------------------------------
@@ -15,18 +13,19 @@ void ofApp::setup(){
     
     //    [[AVAudioSession sharedInstance] setDelegate:self];
     //    NSError *error = nil;
-    //    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    //    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
     //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     
-    //
     
     ofSetFrameRate(60);
     ofEnableAlphaBlending();
     
     ofBackground(0);
     
+    
+    synthSetting();
     
     //    ofxAccelerometer.setup();               //accesses accelerometer data
     //    ofxiPhoneAlerts.addListener(this);      //allows elerts to appear while app is running
@@ -43,6 +42,7 @@ void ofApp::setup(){
     
     if (TARGET_IPHONE_SIMULATOR) {
         debugMovie.load("debug_movie.mov");
+        debugMovie.setVolume(0.0);
         debugMovie.play();
         //        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
     } else {
@@ -55,7 +55,6 @@ void ofApp::setup(){
     
     cameraTex.allocate(cameraWidth, quarterCameraHeight, GL_RGB);
     pix = new unsigned char[ (int)(cameraWidth * quarterCameraHeight * 3.0) ];
-    
     
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
@@ -82,26 +81,25 @@ void ofApp::setup(){
     pixelColor.resize(cameraWidth);
     
     
-    noteLineNum = 24;
+    noteLineNum = NOTE_NUM;
     notePixelColor.resize(noteLineNum);
+    linecolors.resize(noteLineNum);
+    lineOnOffs.resize(noteLineNum);
+    sumColor.resize(noteLineNum);
     
-    ControlParameter carrierPitch1 = synth1.addParameter("carrierPitch1");
-    float amountMod1 = 4;
-    ControlGenerator rCarrierFreq1 = ControlMidiToFreq().input(carrierPitch1);
-    ControlGenerator rModFreq1 = rCarrierFreq1 * 0.489;
-    Generator modulationTone1 = SineWave().freq( rModFreq1 ) * rModFreq1 * amountMod1;
-    Generator tone1 = SineWave().freq(rCarrierFreq1 + modulationTone1);
-    ControlGenerator envelopTrigger1 = synth1.addParameter("trigger1");
-    Generator env1 = ADSR().attack(0.001).decay(0.2).sustain(0).release(0).trigger(envelopTrigger1).legato(false);
-    synth1.setOutputGen( tone1 * env1 * 0.75 );
+    for (int i=0; i<noteLineNum; i++) {
+        lineOnOffs[i].bOnOff = false;
+        sumColor[i] = 0;
+    }
     
     synthMain.setOutputGen( synth1 * 0.8f );
     
     
+    float _scoreUpY = quarterCameraHeight * videoRatio * 2;
     for (int i=0; i<noteLineNum; i++) {
         CircleMoving _lc;
         _lc.movingFactor = 3;
-        _lc.movVertical = ofGetWidth()/2;
+        _lc.movVertical = _scoreUpY;
         float _left2ndEnd = ofGetHeight()/2 - noteLineNum/2*40 + i*10;
         _lc.position = _left2ndEnd;
         circleMovings.push_back(_lc);
@@ -175,6 +173,8 @@ void ofApp::calculatePixel(unsigned char * src){
         _temp.g = src[_index+1];
         _temp.b = src[_index+2];
         pixelColor[i] = _temp;
+
+
     }
     
     
@@ -186,6 +186,13 @@ void ofApp::calculatePixel(unsigned char * src){
         _temp.g = src[_index+1];
         _temp.b = src[_index+2];
         notePixelColor[i] = _temp;
+        
+//        LineColor _lineColor;
+//        _lineColor.fRed = src[_index];
+//        _lineColor.fGreen = src[_index+1];
+//        _lineColor.fBlue = src[_index+2];
+        linecolors[i] = _temp;
+
     }
     
     
@@ -222,42 +229,52 @@ void ofApp::calculatePixel(unsigned char * src){
     //    }
     //
     //
-    //    for (int i=0; i<noteLineNum; i++){
-    //
-    //        float _sumColor = linecolors[i].fRed + linecolors[i].fGreen + linecolors[i].fBlue;
-    //
-    //        LineOnOff _lineOnOff;
-    //        if (_sumColor<200) {
-    //            _lineOnOff.index = i;
-    //            _lineOnOff.bOnOff = true;
-    //            ofNotifyEvent(onOff[i], _lineOnOff);
-    //            ofRemoveListener(onOff[i], this, &ofApp::onOffTest);
-    //
-    //        } else {
-    //            _lineOnOff.index = i;
-    //            _lineOnOff.bOnOff = false;
-    //            ofNotifyEvent(onOff[i], _lineOnOff);
-    //            ofAddListener(onOff[i], this, &ofApp::onOffTest);
-    //        }
-    //
-    //
-    //        if (linecolors[i].bNoteTrigger) {
-    //            synth1.setParameter("trigger1", 1);
-    //            synth1.setParameter("carrierPitch1", scale[i]+80);
-    //            linecolors[i].bNoteTrigger = false;
-    //            circleMovings[i].movVertical = ofGetWidth()/2;
-    //            circleMovings[i].movingFactor = circleMovigSpeed;
-    //        }
-    //
-    //        if (circleMovings[i].bMovingTrigger) {
-    //            circleMovings[i].movVertical = circleMovings[i].movVertical - circleMovings[i].movingFactor;
-    //            if (circleMovings[i].movVertical < 0) {
-    //                circleMovings[i].movVertical = ofGetWidth()/2;
-    //                circleMovings[i].movingFactor = 0;
-    //            }
-    //        }
-    //
-    //    }
+
+    
+    
+    for (int i=0; i<noteLineNum; i++){
+        
+        sumColor[i] = notePixelColor[i].r + notePixelColor[i].g + notePixelColor[i].b;
+
+//        if ( sumColor[i] < (150 * 3) && !lineOnOffs[i].bOnOff ) {
+//            lineOnOffs[i].index = i;
+////            lineOnOffs[i].bOnOff = true;
+//        }
+
+        if ( sumColor[i] > 450 && !lineOnOffs[i].bOnOff ) {
+            lineOnOffs[i].index = i;
+            lineOnOffs[i].bOnOff = true;
+            synth1.setParameter("trigger1", 1);
+            synth1.setParameter("carrierPitch1", scale[i] + 60);
+        }
+        
+        
+//        if (linecolors[i].bNoteTrigger) {
+//            synth1.setParameter("trigger1", 1);
+//            synth1.setParameter("carrierPitch1", scale[i]+20);
+//            linecolors[i].bNoteTrigger = false;
+//            circleMovings[i].movVertical = ofGetWidth()/2;
+//            circleMovings[i].movingFactor = circleMovigSpeed;
+//        }
+        
+
+        
+        if (lineOnOffs[i].bOnOff) {
+            circleMovings[i].movVertical = circleMovings[i].movVertical + circleMovings[i].movingFactor;
+            
+            if (circleMovings[i].movVertical > ofGetHeight()) {
+
+                float _scoreUpY = quarterCameraHeight * videoRatio * 2;
+
+                circleMovings[i].movVertical = _scoreUpY;
+                circleMovings[i].movingFactor = 3;
+                lineOnOffs[i].bOnOff = false;
+                
+
+            }
+        }
+        
+    }
     
     
 }
@@ -266,16 +283,15 @@ void ofApp::calculatePixel(unsigned char * src){
 //--------------------------------------------------------------
 void ofApp::onOffTest(LineOnOff & _lineOnOff){
     
-    if (_lineOnOff.bOnOff) {
-        linecolors[_lineOnOff.index].bNoteTrigger = true;
-        circleMovings[_lineOnOff.index].bMovingTrigger = true;
-        linecolors[_lineOnOff.index].index = _lineOnOff.index;
-        
-    } else {
-        linecolors[_lineOnOff.index].bNoteTrigger = false;
-        linecolors[_lineOnOff.index].bMovingTrigger = false;
-        circleMovings[_lineOnOff.index].index = _lineOnOff.index;
-    }
+//    if (_lineOnOff.bOnOff) {
+//        linecolors[_lineOnOff.index].bNoteTrigger = true;
+//        circleMovings[_lineOnOff.index].bMovingTrigger = true;
+//        linecolors[_lineOnOff.index].index = _lineOnOff.index;
+//    } else {
+//        linecolors[_lineOnOff.index].bNoteTrigger = false;
+//        linecolors[_lineOnOff.index].bMovingTrigger = false;
+//        circleMovings[_lineOnOff.index].index = _lineOnOff.index;
+//    }
     
 }
 
@@ -295,16 +311,22 @@ void ofApp::draw() {
     
     
     
-    //    ofPushMatrix();
-    //    ofPushStyle();
-    //
-    //    for (int i=0; i<noteLineNum; i++) {
-    //        float _left2ndEnd = ofGetHeight()/2 - noteLineNum/2*10 + i*10;
-    //        ofCircle(circleMovings[i].movVertical, _left2ndEnd, 3);
-    //    }
-    //
-    //    ofPopStyle();
-    //    ofPopMatrix();
+    ofPushMatrix();
+    ofPushStyle();
+    
+    float _scoreSizeRatio = scoreSizeRatio;
+    
+    for (int i=0; i<noteLineNum; i++) {
+        float _downSizeRatio = _scoreSizeRatio;
+        float _downX = screenW * 0.5 - (pixelColor.size() - 1) * _downSizeRatio * 0.5 + i * (pixelColor.size() - 1) * _downSizeRatio / noteLineNum;
+        ofPushStyle();
+//        ofSetColor( notePixelColor[i] );
+        ofDrawCircle(_downX, circleMovings[i].movVertical, 3);
+        ofPopStyle();
+    }
+    
+    ofPopStyle();
+    ofPopMatrix();
     
     
     ofPopMatrix();
@@ -414,9 +436,9 @@ void ofApp::drawScoreBase(){
     float _sX = screenW * 0.5 - _baseScorebarLength;
     float _eX = screenW * 0.5 + _baseScorebarLength;
     
-    for(int i=0; i<20; i++) {
+    for(int i=0; i<noteLineNum; i++) {
        
-        float _y = _scoreUpY + i * (screenH - _scoreUpY) / 20;
+        float _y = _scoreUpY + i * (screenH - _scoreUpY) / noteLineNum;
         ofPoint _sPos = ofPoint( _sX, _y);
         ofPoint _ePos = ofPoint( _eX, _y);
         
@@ -533,5 +555,24 @@ void ofApp::gotMemoryWarning(){
 
 //--------------------------------------------------------------
 void ofApp::deviceOrientationChanged(int newOrientation){
+    
+}
+
+
+
+//--------------------------------------------------------------
+void ofApp::synthSetting(){
+    
+    
+    ControlParameter carrierPitch1 = synth1.addParameter("carrierPitch1");
+    float amountMod1 = 4;
+    ControlGenerator rCarrierFreq1 = ControlMidiToFreq().input(carrierPitch1);
+    ControlGenerator rModFreq1 = rCarrierFreq1 * 0.489;
+    Generator modulationTone1 = SineWave().freq( rModFreq1 ) * rModFreq1 * amountMod1;
+    Generator tone1 = SineWave().freq(rCarrierFreq1 + modulationTone1);
+    ControlGenerator envelopTrigger1 = synth1.addParameter("trigger1");
+    Generator env1 = ADSR().attack(0.001).decay(0.2).sustain(0).release(0).trigger(envelopTrigger1).legato(false);
+    synth1.setOutputGen( tone1 * env1 * 0.75 );
+
     
 }

@@ -4,9 +4,9 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-//#include "AVFoundation/AVFoundation.h"
-
 #include "ofxTonic.h"
+
+#define NOTE_NUM 24
 
 using namespace Tonic;
 
@@ -71,8 +71,9 @@ public:
     void audioRequested (float * output, int bufferSize, int nChannels);
     void audioReceived(float * input, int bufferSize, int nChannels);
     
-    LineOnOff lineOnOffs;
-    ofEvent<LineOnOff> onOff[20];
+    vector<LineOnOff> lineOnOffs;
+    vector<float> sumColor;
+    ofEvent<LineOnOff> onOff[NOTE_NUM];
     void onOffTest(LineOnOff & _lineOnOffs);
     
     int cameraDevice;
@@ -89,7 +90,7 @@ public:
     vector<float> randomYPos;
     int noteLineNum;
     
-    vector<LineColor> linecolors;
+    vector<ofColor> linecolors;
     vector<CircleMoving> circleMovings;
     vector<InputMovie> inputVideo;
     
@@ -118,7 +119,12 @@ public:
     
     void drawBasicLine();
     void drawScoreBase();
+
     
+    void synthSetting();
+
+
 };
+
 
 
