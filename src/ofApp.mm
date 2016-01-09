@@ -11,6 +11,7 @@ int scale[24] = {-48,-36,-28,-24,-16,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    
     //    [[AVAudioSession sharedInstance] setDelegate:self];
     //    NSError *error = nil;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -296,14 +297,15 @@ void ofApp::draw() {
     
     
     ofPushMatrix();
-    cameraTex.draw( 0, 0, cameraWidth * videoRatio, quarterCameraHeight * videoRatio );
     
+    float _w = cameraWidth * videoRatio;
+    float _h = quarterCameraHeight * videoRatio;
+    cameraTex.draw( 0, 0, _w, _h );
     
     
     drawScoreBase();
     
     drawBasicLine();
-    
     
     
     ofPushMatrix();
