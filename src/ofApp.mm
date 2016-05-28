@@ -48,7 +48,7 @@ void ofApp::setup(){
         //        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
     } else {
         grabber.setDeviceID( 0 );
-        grabber.setDesiredFrameRate(60);
+        grabber.setDesiredFrameRate(30);
         grabber.setup(cameraWidth, cameraHeight, OF_PIXELS_BGRA);
         //        bufferPixels.allocate(cameraWidth, cameraHeight * 0.25, OF_PIXELS_RGB);
     }
@@ -69,7 +69,7 @@ void ofApp::setup(){
     }
     
     
-    videoRatio =  screenW / cameraWidth;
+    videoRatio =  screenW / (float)cameraWidth;
     
     coreSizeRatio = screenW / 5120.0;
     scoreSizeRatio = screenW / 914.0;
@@ -131,14 +131,14 @@ void ofApp::update(){
     } else {
         grabber.update();
         if (grabber.isFrameNew()) {
-            unsigned char * src = grabber.getPixels().getData();
+            unsigned char * _src = grabber.getPixels().getData();
             //            ofPixels & pixels = grabber.getPixels();
             //            if (pixels.size()>0) {
             //                for(int i = 0; i < pixels.size(); i++){
             //                    bufferPixels[i] = pixels[i];
             //                }
             //            }
-            calculatePixel(src);
+            calculatePixel(_src);
             
         }
         
@@ -153,7 +153,7 @@ void ofApp::update(){
 void ofApp::calculatePixel(unsigned char * src){
     
     cameraTex.loadData(src, cameraWidth, quarterCameraHeight, GL_RGB);
-    
+
     //    for (int i=0; i<cameraHeight; i++){
     //        for (int j=cameraWidth*1/4; j<cameraWidth*3; j++){
     //            int _index = i * cameraWidth*3 + j;
@@ -296,7 +296,10 @@ void ofApp::onOffTest(LineOnOff & _lineOnOff){
 void ofApp::draw() {
     
     
+    if (pixelColor.size()>0) {
+
     ofPushMatrix();
+    
     
     float _w = cameraWidth * videoRatio;
     float _h = quarterCameraHeight * videoRatio;
@@ -311,7 +314,9 @@ void ofApp::draw() {
     ofPushMatrix();
     ofPushStyle();
     
+    
     float _scoreSizeRatio = scoreSizeRatio;
+    
     
     for (int i=0; i<noteLineNum; i++) {
         float _downSizeRatio = _scoreSizeRatio;
@@ -321,6 +326,8 @@ void ofApp::draw() {
         ofDrawCircle(_downX, circleMovings[i].movVertical, 3);
         ofPopStyle();
     }
+        
+    
     
     ofPopStyle();
     ofPopMatrix();
@@ -328,7 +335,8 @@ void ofApp::draw() {
     
     ofPopMatrix();
     
-    
+    }
+        
     ofPushMatrix();
     ofPushStyle();
     ofSetColor(255);
@@ -458,6 +466,11 @@ void ofApp::drawScoreBase(){
 void ofApp::exit(){
     
     grabber.close();
+    notePixelColor.clear();
+    linecolors.clear();
+    lineOnOffs.clear();
+    sumColor.clear();
+    
     std::exit(0);
     
 }
