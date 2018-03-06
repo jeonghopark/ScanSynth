@@ -5,6 +5,7 @@ int scale[24] = {-48,-36,-28,-24,-16,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,
 
 
 #include "ofApp.h"
+
 #include <AVFoundation/AVFoundation.h>
 
 
@@ -12,17 +13,19 @@ int scale[24] = {-48,-36,-28,-24,-16,-10,0,2,4,5,7,9,11,12,14,16,17,19,21,23,24,
 void ofApp::setup(){
     
     
-    //    [[AVAudioSession sharedInstance] setDelegate:self];
-    //    NSError *error = nil;
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    
+//        [[AVAudioSession sharedInstance] setDelegate:self];
+//        NSError *error = nil;
+
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+
+//        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
     
     
     ofSetFrameRate(60);
     ofEnableAlphaBlending();
-    
+
     ofBackground(0);
     
     
@@ -309,7 +312,7 @@ void ofApp::draw() {
     drawScoreBase();
     
     drawBasicLine();
-    
+
     
     ofPushMatrix();
     ofPushStyle();
